@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+}
+
+.sidebar {
+  flex: 2;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_640.jpg" );
+
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  margin: 30px;
+}
+.sidebar h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto";
+  padding: 20px;
+  color: #fff;
+}
+.search{
+  height: auto;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+  padding: 10px;
+}
+
+.search input {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  font-weight: 900;
+}
+
+.search select {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  font-weight: 900;
+}
+
+.search label {
+  color: #fff;
+  font-weight: 900;
+}
+
+.mainbar {
+  flex: 4;
+  margin: 30px 20px;
+}
+
+.mainbar hr{
+   width: 70%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.event_item{
+
+  display: flex;
+  padding: 10px;
+  border-radius: 20px ;
+}
+
+.event_image{
+  height: 350px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.event_detail{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 50px;
+}
+
+.event_detail:first-child{
+
+  font-weight: 900;
+  font-size: 20px;
+
+  font-family: "Monaco";
+  color: #8a3758;
+
+}
+.event_detail h2{
+  font-family: "Monaco";
+  color: #444;
+}
+
+.event_detail button{
+  border-radius: 5px;
+  border: none;
+  margin: 20px 0px;
+  background-color: #8a3758;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Monaco";
+  padding: 15px;
+  width: 100%;
+  font-size: 15px;
+  transition: all 1s ease;
+}
+
+.event_detail span{
+  font-weight: 900;
+  margin: 5px 0px;
+}
+
+.event_detail button:hover{
+  transform: scale(1.1);
+  background-color: #fff;
+  color: #8a3758;
+  
+}

@@ -1,0 +1,97 @@
+.events_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    margin: 5%;
+}
+.events_header h3{
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: 900;
+    color: #8a3758;
+}
+
+.body{
+    margin: 2% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    flex-wrap: wrap;
+}
+.events_item{
+    margin: 3% 0%;
+    position: relative;
+    width: 30%;
+    height: 50%;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+.image{
+    object-fit: cover;
+    height: 50%;
+    width: 100%;
+}
+.event_image{
+    position: relative;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+.event_image:hover{
+    transform: scale(1.05);
+}
+.info{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info span{
+    background-color: rgba(255,255,255,0.3);
+    padding: 15px;
+    font-size: 15px;
+    font-family: 'Roboto';
+    color: #fff; 
+    font-weight: 900;
+    border-radius: 50%;
+
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hearticon{
+
+    height: 40px;
+    width: 50px;
+    background-color: #f9649d;
+    border-radius: 50%;
+    color: #fff;
+    padding: 10px;
+    font-size:10px;
+    margin-left: 200px;
+    cursor: pointer;
+    transition: all 1s ease;
+
+}
+.hearticon:hover{
+    transform: scale(1.1);
+    background-color: #fff;
+    color: #f9649d ;
+}
+
+.desc{
+
+    display: flex;;
+}
+
+.event_date h3{
+    margin: 20px;
+    font-size: 25px; 
+    font-weight: 900;
+    font-family: "Roboto";
+    color: #8a3758;
+}

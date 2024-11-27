@@ -1,0 +1,182 @@
+/* /* General body layout */
+body {
+    background-color: white;
+    margin: 0; /* Remove default margin */
+    display: block; /* Reset flexbox */
+}
+
+/* Navbar styling */
+.container {
+    background-image: linear-gradient(to right, #401a29, #8a3758);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_text {
+    font-size: 40px;
+    margin: 0px 30px;
+    font-weight: 900;
+    font-family: "Roboto";
+    color: whitesmoke;
+}
+
+.logo {
+    flex: 1;
+}
+
+.menulink {
+    flex: 2;
+}
+
+.menulink span {
+    margin-right: 10%;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    color: whitesmoke;
+}
+
+.notified button {
+    cursor: pointer;
+    background-color: pink;
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    border: none;
+    margin: 0px 30px;
+    border-radius: 5px;
+}
+
+.notified button:hover {
+    background-color: #8a3758;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.logoutButton {
+    cursor: pointer;
+    background-color: #ff6347; /* Tomato color */
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    border: none;
+    margin: 0px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+    background-color: #8a3758;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.userBox {
+    background-color: pink;
+    color: white;
+    font-weight: 900;
+    border: 2px solid #8a3758;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.userBox:hover {
+    background-color: #8a3758;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Centering the login box */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Full height minus navbar height */
+}
+
+.signup-container {
+    max-width: 500px;
+    padding: 2rem;
+    background-color: aqua;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.signup-heading {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.signup-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.signup-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.signup-input:focus {
+    border-color: #646cff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(100, 108, 255, 0.4);
+}
+
+.signup-btn {
+    padding: 0.75rem 2rem;
+    background-color: purple;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #535bf2;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: black;
+}
+
+.signup-link a {
+    color: #646cff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    color: #535bf2;
+    text-decoration: underline;
+}
