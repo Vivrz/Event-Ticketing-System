@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './signup.css';
-
+import { base_url } from '../../Hunter';
 function OrganiserSignup() {
     const [signupInfo, setsignupInfo] = useState({
         name: '',
@@ -38,7 +38,7 @@ function OrganiserSignup() {
         }
 
         try {
-            const url = "http://localhost:5000/Organiser-Signup";
+            const url = `${base_url}/Organiser-Signup`;
             const response = await axios.post(url, signupInfo, {
                 headers: {
                     'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import  { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "../styles/Events.module.css";
-
+import { base_url } from '../../Hunter';
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [showAddEventForm, setShowAddEventForm] = useState(false);
@@ -17,12 +17,12 @@ const Events = () => {
 
   // Fetch events
   useEffect(() => {
-    axios.get("http://localhost:5000/events").then((res) => setEvents(res.data));
+    axios.get(`${base_url}/events`).then((res) => setEvents(res.data));
   }, []);
 
   // Handle Add Event
   const handleAddEvent = () => {
-    axios.post("http://localhost:5000/add-event", newEvent).then((res) => {
+    axios.post(`${base_url}/add-event`, newEvent).then((res) => {
       setEvents([...events, res.data]);
       setShowAddEventForm(false);
     });
@@ -34,7 +34,7 @@ const Events = () => {
     if (!confirmed) return;
 
     axios
-  .delete(`http://localhost:5000/delete-event/${eventId}`)
+  .delete(`${base_url}/delete-event/${eventId}`)
   .then(() => {
     console.log("Event deleted successfully"); // Add this for debugging
     setEvents(events.filter((event) => event._id !== eventId));

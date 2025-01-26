@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { jsPDF } from "jspdf";  // Import jsPDF
 import styles from "../styles/public_events.module.css";
-
+import { base_url } from '../../Hunter';
 const Public_events = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -14,7 +14,7 @@ const Public_events = () => {
 
   // Fetch events
   useEffect(() => {
-    axios.get("http://localhost:5000/events").then((res) => setEvents(res.data));
+    axios.get(`${base_url}/events`).then((res) => setEvents(res.data));
   }, []);
 
   // Handle Booking

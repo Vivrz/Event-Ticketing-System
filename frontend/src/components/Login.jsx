@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-
+import { base_url } from '../../Hunter';
 function Login() {
     const [LoginInfo, setLoginInfo] = useState({
         email: '',
@@ -30,7 +30,7 @@ function Login() {
             return handlerror('Email and password are required!');
         }
         try {
-            const url = "http://localhost:5000/Login";
+            const url = `${base_url}/Login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

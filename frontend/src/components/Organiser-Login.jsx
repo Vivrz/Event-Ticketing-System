@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
 import Events from './Events';
-
+import { base_url } from '../../Hunter';
 function OrganiserLogin() {
     const [LoginInfo, setLoginInfo] = useState({
         email: '',
@@ -29,7 +29,7 @@ function OrganiserLogin() {
         }
 
         try {
-            const url = "http://localhost:5000/Organiser-Login"; // Update the API endpoint for organiser login
+            const url = `${base_url}/Organiser-Login`; // Update the API endpoint for organiser login
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

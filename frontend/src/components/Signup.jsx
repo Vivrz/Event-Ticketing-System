@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-// import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import {  useNavigate } from 'react-router';
+import { base_url } from '../../Hunter';
 function Signup() {
 
     const [signupInfo , setsignupInfo] = useState({
@@ -26,7 +26,7 @@ function Signup() {
             return handlerror('name , email ,password are required ! ');
         }
         try{
-            const url = "http://localhost:5000/Signup";
+            const url = `${base_url}/Signup`;
             const response = await fetch(url , {
                 method : "POST",
                 headers : {
