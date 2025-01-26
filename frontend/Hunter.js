@@ -1,1 +1,1 @@
-export const base_url = `https://event-ticketing-system-10.onrender.com`;
+export const base_url = `https://event-ticketing-system-11.onrender.com`;
