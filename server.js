@@ -10,11 +10,12 @@ connectionWithDB();
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://event-ticketing-system-11.onrender.com','https://event-ticket-system-2owiby2a1-vivrzs-projects.vercel.app'],
+    origin: ['https://event-ticketing-system-11.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
-
+app.options('*', cors());
 app.use(express.json());
 
 const eventSchema = new mongoose.Schema({
