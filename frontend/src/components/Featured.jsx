@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/Featured.module.css";
 import { useNavigate } from "react-router-dom";
-import { base_url } from '../../Hunter';
 const Featured = () => {
   const navigate = useNavigate(); 
   const handlevent = () =>{

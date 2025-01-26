@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { base_url } from '../../Hunter';
+
 function Login() {
     const [LoginInfo, setLoginInfo] = useState({
         email: '',
