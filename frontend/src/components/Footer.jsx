@@ -1,3 +1,4 @@
+
 import React from "react";
 import styles from '../styles/Footer.module.css'
 import { FaFacebook, FaInstagramSquare, FaPinterest, FaTwitter } from 'react-icons/fa';
@@ -13,12 +14,12 @@ const Footer = () => {
             hired.
           </span>
           <div className={styles.icons}>
-
-            <FaFacebook className={styles.icon}/>
-            <FaInstagramSquare className={styles.icon} />
-            <FaTwitter className={styles.icon}/>
-            <FaPinterest className={styles.icon}/>
-
+            <FaFacebook className={styles.icon} />
+            <a href="https://www.instagram.com/numen_vivek/" target="_blank" rel="noopener noreferrer">
+              <FaInstagramSquare className={styles.icon} />
+            </a>
+            <FaTwitter className={styles.icon} />
+            <FaPinterest className={styles.icon} />
           </div>
         </div>
         <div className={styles.footer_item}>
@@ -61,8 +62,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-
-      <span>&copy; MVX All rights reseverd.</span>
+      <span>&copy; MVX All rights reserved.</span>
     </div>
   );
 };

@@ -9,7 +9,11 @@ const connectionWithDB = require('./Models/DB.js');
 connectionWithDB();
 const app = express();
 require('dotenv').config();
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 const eventSchema = new mongoose.Schema({
@@ -21,7 +25,6 @@ const eventSchema = new mongoose.Schema({
 
 const Event = mongoose.model("Event", eventSchema);
 
-
 const ticketSchema = new mongoose.Schema({
   eventId: String,
   userName: String,
@@ -29,7 +32,6 @@ const ticketSchema = new mongoose.Schema({
 });
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
-
 
 app.post("/add-event", async (req, res) => {
   try {
@@ -61,17 +63,10 @@ app.post("/book-ticket", async (req, res) => {
     res.status(400).send(error);
   }
 });
+
 const jwt = require('jsonwebtoken');
 const farmer = require("./Models/farmerschema.js");
 
-
-app.use(express.json());
-
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
 app.get("/", (req, res) => { 
     res.send("hello from backend");
 })
@@ -91,7 +86,6 @@ app.post("/Organiser-Login" ,LoginValidation, async(req , res) => {
           .json({message : errormsg , success : false})
       }
 
-     
       const jwtoken = jwt.sign(
           {email : user.email  , _id : user._id},
           process.env.JWT_SECRET,
@@ -128,8 +122,8 @@ app.post("/Organiser-Signup" ,signupValidation, async(req , res) => {
           .json({message : "User is already exist , you can login" , success : false})
       } 
       const hashedPassword = await bcrypt.hash(password, 10);
-const userModel = new Organiser({ name, email, password: hashedPassword });
-await userModel.save();
+      const userModel = new Organiser({ name, email, password: hashedPassword });
+      await userModel.save();
       res.status(201).
       json({message : "Signup successfully", success : true})
   }
@@ -140,7 +134,6 @@ await userModel.save();
   }
 })
 
-
 app.post("/Signup" ,signupValidation, async(req , res) => {
     try{
         const {name ,   password , email    } = req.body;
@@ -150,8 +143,8 @@ app.post("/Signup" ,signupValidation, async(req , res) => {
             .json({message : "User is already exist , you can login" , success : false})
         } 
         const hashedPassword = await bcrypt.hash(password, 10);
-const userModel = new farmer({ name, email, password: hashedPassword });
-await userModel.save();
+        const userModel = new farmer({ name, email, password: hashedPassword });
+        await userModel.save();
         res.status(201).
         json({message : "Signup successfully", success : true})
     }
@@ -161,7 +154,6 @@ await userModel.save();
         json({message : "Internal server error " ,  success : false })
     }
 })
-
 
 app.post("/Login" ,LoginValidation, async(req , res) => {
     try{
@@ -178,7 +170,6 @@ app.post("/Login" ,LoginValidation, async(req , res) => {
             .json({message : errormsg , success : false})
         }
 
-       
         const jwtoken = jwt.sign(
             {email : user.email  , _id : user._id},
             process.env.JWT_SECRET,
@@ -195,7 +186,7 @@ app.post("/Login" ,LoginValidation, async(req , res) => {
     }
 })
 
-// Start Server
+
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });

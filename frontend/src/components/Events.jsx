@@ -34,15 +34,17 @@ const Events = () => {
     if (!confirmed) return;
 
     axios
-      .delete(`http://localhost:5000/delete-event/${eventId}`)
-      .then(() => {
-        setEvents(events.filter((event) => event._id !== eventId));
-        alert("Event deleted successfully!");
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("Error deleting event");
-      });
+  .delete(`http://localhost:5000/delete-event/${eventId}`)
+  .then(() => {
+    console.log("Event deleted successfully"); // Add this for debugging
+    setEvents(events.filter((event) => event._id !== eventId));
+    alert("Event deleted successfully!");
+  })
+  .catch((err) => {
+    console.error("Error in delete request:", err);
+    alert("Error deleting event");
+  });
+
   };
 
   // Handle Event Click (Navigate to Booking Page)

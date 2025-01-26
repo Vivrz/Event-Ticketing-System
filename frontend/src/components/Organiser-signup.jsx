@@ -1,8 +1,6 @@
-
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { handlerror, handleSuccess } from './util';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './signup.css';
 
@@ -11,27 +9,36 @@ function OrganiserSignup() {
         name: '',
         email: '',
         password: ''
-       
     });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        const copySignupInfo = { ...signupInfo };
-        copySignupInfo[name] = value;
-        setsignupInfo(copySignupInfo);
+        setsignupInfo((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     const handleSignup = async (e) => {
         e.preventDefault();
         const { name, email, password } = signupInfo;
-        
+
         if (!name || !email || !password) {
-            return handlerror('Name, email, and password are required!');
+            return toast.error('Name, email, and password are required!');
+        }
+
+        const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!validateEmail(email)) {
+            return toast.error('Please enter a valid email address!');
+        }
+
+        if (password.length < 6) {
+            return toast.error('Password must be at least 6 characters long!');
         }
 
         try {
-            const url = "http://localhost:5000/Organiser-Signup"; 
+            const url = "http://localhost:5000/Organiser-Signup";
             const response = await axios.post(url, signupInfo, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,15 +47,19 @@ function OrganiserSignup() {
 
             const { success, message } = response.data;
             if (success) {
-                handleSuccess(message);
+                toast.success(message);
                 setTimeout(() => {
-                    navigate('/organiser-login'); 
+                    navigate('/organiser-login');
                 }, 1000);
             } else {
-                handlerror(message);
+                toast.error(message);
             }
         } catch (err) {
-            handlerror(err.message || 'An error occurred while signing up');
+            if (err.response) {
+                toast.error(err.response.data.message || 'An error occurred on the server');
+            } else {
+                toast.error(err.message || 'Network error occurred');
+            }
         }
     };
 

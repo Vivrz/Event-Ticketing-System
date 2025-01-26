@@ -1,8 +1,9 @@
 /* /* General body layout */
 body {
-    background-color: white;
-    margin: 0; /* Remove default margin */
-    display: block; /* Reset flexbox */
+    background-color: #f0f2f5; /* Softer background color */
+    margin: 0;
+    display: block;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Navbar styling */
@@ -12,112 +13,151 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Better spacing */
+    padding: 0 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .logo_text {
     font-size: 40px;
-    margin: 0px 30px;
+    margin: 0;
     font-weight: 900;
-    font-family: "Roboto";
     color: whitesmoke;
+    transition: transform 0.3s ease;
 }
 
-.logo {
-    flex: 1;
+.logo_text:hover {
+    transform: scale(1.1);
 }
 
 .menulink {
-    flex: 2;
+    display: flex;
+    gap: 20px;
 }
 
 .menulink span {
-    margin-right: 10%;
     font-size: 17px;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: color 0.3s, transform 0.3s;
     color: whitesmoke;
 }
 
-.notified button {
+.menulink span:hover {
+    color: #ffd700; /* Gold color on hover */
+    transform: translateY(-3px);
+}
+
+.notified button,
+.logoutButton {
     cursor: pointer;
-    background-color: pink;
-    padding: 15px;
+    padding: 10px 20px;
     color: white;
     font-weight: 900;
     border: none;
-    margin: 0px 30px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notified button {
+    background-color: #ff69b4; /* Hot pink */
+    margin: 0 10px;
 }
 
 .notified button:hover {
-    background-color: #8a3758;
-    color: white;
-    transform: translateY(-2px);
+    background-color: #ff1493; /* Deep pink */
+    transform: translateY(-3px);
 }
 
 .logoutButton {
-    cursor: pointer;
     background-color: #ff6347; /* Tomato color */
-    padding: 15px;
-    color: white;
-    font-weight: 900;
-    border: none;
-    margin: 0px 30px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    margin: 0 10px;
 }
 
 .logoutButton:hover {
-    background-color: #8a3758;
-    color: white;
-    transform: translateY(-2px);
+    background-color: #e5533d;
+    transform: translateY(-3px);
 }
 
 .userBox {
-    background-color: pink;
+    background-color: #ff69b4;
     color: white;
     font-weight: 900;
     border: 2px solid #8a3758;
     border-radius: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     margin: 0 10px;
     text-align: center;
     display: inline-block;
     font-size: 14px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .userBox:hover {
     background-color: #8a3758;
-    color: white;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Centering the login box */
+/* Centering the login/signup box with fade-in animation */
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Full height minus navbar height */
+    height: calc(100vh - 100px);
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .signup-container {
     max-width: 500px;
     padding: 2rem;
-    background-color: aqua;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     width: 100%;
     box-sizing: border-box;
+    transform: scale(0.95);
+    animation: scaleUp 0.5s forwards;
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scale(1);
+    }
 }
 
 .signup-heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     color: #333;
     margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.signup-heading::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: #8a3758;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .signup-form {
@@ -127,56 +167,79 @@ body {
 }
 
 .signup-label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
     color: #555;
+    transition: color 0.3s;
 }
 
 .signup-input {
     width: 100%;
     padding: 0.75rem;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-    border-radius: 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .signup-input:focus {
-    border-color: #646cff;
-    outline: none;
-    box-shadow: 0 0 8px rgba(100, 108, 255, 0.4);
+    border-color: #8a3758;
+    box-shadow: 0 0 8px rgba(138, 55, 88, 0.4);
 }
 
 .signup-btn {
     padding: 0.75rem 2rem;
-    background-color: purple;
+    background-color: #8a3758;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: center;
+    width: 100%;
 }
 
 .signup-btn:hover {
-    background-color: #535bf2;
+    background-color: #5a1e3c;
+    transform: translateY(-3px);
 }
 
 .signup-link {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
-    color: black;
+    color: #333;
 }
 
 .signup-link a {
-    color: #646cff;
+    color: #8a3758;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .signup-link a:hover {
-    color: #535bf2;
+    color: #5a1e3c;
     text-decoration: underline;
+}
+
+/* Google Sign-In/Sign-Up Button Styling */
+.google-signin-btn {
+    padding: 0.75rem 2rem;
+    background-color: #4285f4; /* Google blue */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 1rem;
+}
+
+.google-signin-btn:hover {
+    background-color: #357ae8; /* Darker Google blue */
+    transform: translateY(-3px);
 }
