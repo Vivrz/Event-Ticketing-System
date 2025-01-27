@@ -47,7 +47,7 @@ function Login() {
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
                 setTimeout(() => {
-                    navigate('/Home');
+                    navigate('/home');
                 }, 0);
             }
         } catch (err) {
