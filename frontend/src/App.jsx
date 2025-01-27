@@ -46,7 +46,7 @@ const App = () => {
               />
             }
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/Signup" element={<Signup />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/organiser-signup" element={<OrganiserSignup />} />
           <Route path="/organiser-login" element={<OrganiserLogin />} />

@@ -43,6 +43,7 @@ function Signup() {
             }
         }
         catch(err){
+            console.log("error");
             handlerror(err);
         }
     }
