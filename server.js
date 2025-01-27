@@ -9,29 +9,11 @@ const connectionWithDB = require('./Models/DB.js');
 connectionWithDB();
 const app = express();
 require('dotenv').config();
-// app.use(cors({
-//     origin: ['http://localhost:5173', 'https://event-ticketing-system-11.onrender.com'],
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// }));
-
-const corsOptions = {
-    origin: (origin, callback) => {
-        const allowedOrigins = ['http://localhost:5173', 'https://event-ticketing-system-11.onrender.com'];
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+app.use(cors({
+    origin: ['https://event-ticket-system-r4qa4vrbn-vivrzs-projects.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true // If you need to allow cookies or Authorization headers
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests globally
-
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 
