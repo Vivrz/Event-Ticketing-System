@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { base_url } from '../../Hunter';
 
 function Login() {
     const [LoginInfo, setLoginInfo] = useState({
@@ -36,7 +37,6 @@ function Login() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                credentials  : true,
                 body: JSON.stringify(LoginInfo)
             });
             const result = await response.json();
@@ -51,6 +51,7 @@ function Login() {
                 }, 0);
             }
         } catch (err) {
+            console.log("error");
             handlerror(err);
         }
     };

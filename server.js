@@ -10,10 +10,9 @@ connectionWithDB();
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['https://event-ticket-system-pnxrsgmzv-vivrzs-projects.vercel.app', 'http://localhost:5173'],
+    origin: ['https://event-ticket-system-l9r3sun1z-vivrzs-projects.vercel.app', 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
