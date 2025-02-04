@@ -1,1 +1,1 @@
-export const base_url = `https://event-ticket-system-tan.vercel.app`;
+export const base_url = `https://event-ticket-system-eu0evr8yo-vivrzs-projects.vercel.app`;
