@@ -14,18 +14,18 @@ import { auth, provider, signInWithPopup } from "./components/firsbase";
 const App = () => {
   const [user, setUser] = useState(null);
 
-  // Check user authentication state
+  
   useEffect(() => {
     auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
     });
   }, []);
 
-  // Handle Google Sign-In
+  
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      setUser(result.user); // Set the authenticated user
+      setUser(result.user);
     } catch (error) {
       console.error("Error during Google Sign-In", error);
     }

@@ -12,7 +12,6 @@ const HomePage = () => {
         <br />
         <Public_events/>
         <Footer />
-
     </div>
   )
 }
