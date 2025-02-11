@@ -41,9 +41,9 @@ const App = () => {
         }
       />
       <Route path="/Signup" element={<Signup />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/organiser-signup" element={<OrganiserSignup />} />
-      <Route path="/organiser-login" element={<OrganiserLogin />} />
+      <Route path="/HomePage" element={<HomePage />} />
+      <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
+      <Route path="/OrganiserLogin()" element={<OrganiserLogin />} />
       <Route path="/Events" element={user ? <Events /> : <Navigate to="/login" />} />
       <Route path="/Public_events" element={<Public_events />} />
       <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
