@@ -29,27 +29,22 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      {/* Redirect to login if not authenticated */}
-      <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-      <Route
-        path="/login"
-        element={
-          <Login
-            onGoogleLogin={handleGoogleLogin} // Pass Google login handler
-          />
-        }
-      />
-      <Route path="/Signup" element={<Signup />} />
-      <Route path="/HomePage" element={<HomePage />} />
-      <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
-      <Route path="/OrganiserLogin()" element={<OrganiserLogin />} />
-      <Route path="/Events" element={user ? <Events /> : <Navigate to="/login" />} />
-      <Route path="/Public_events" element={<Public_events />} />
-      <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
-      {/* Fallback route */}
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+    <Router>
+      <Routes>
+        {/* Redirect to login if not authenticated */}
+        <Route path="/" element={user ? <Navigate to="/HomePage" /> : <Navigate to="/login" />} />
+        <Route path="/login" element={<Login onGoogleLogin={handleGoogleLogin} />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/organiser-signup" element={<OrganiserSignup />} />
+        <Route path="/organiser-login" element={<OrganiserLogin />} />
+        <Route path="/Events" element={user ? <Events /> : <Navigate to="/login" />} />
+        <Route path="/Public_events" element={<Public_events />} />
+        <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
+        {/* Fallback route */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 };
 
