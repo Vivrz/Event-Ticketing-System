@@ -1,8 +1,7 @@
-
 import { useState } from 'react';
 import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { handlerror, handleSuccess } from './util';
+import { handleError, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { base_url } from '../../Hunter';
@@ -28,7 +27,7 @@ function Login() {
         e.preventDefault();
         const { email, password } = LoginInfo;
         if (!email || !password) {
-            return handlerror('Email and password are required!');
+            return handleError('Email and password are required!');
         }
         try {
             const url = `${base_url}/Login`;
@@ -46,11 +45,11 @@ function Login() {
                 handleSuccess(message);
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
-                navigate('/home');
+                navigate('/HomePage');
             }
         } catch (err) {
             console.log("error");
-            handlerror(err);
+            handleError(err);
         }
     };
 
@@ -65,7 +64,7 @@ function Login() {
             navigate('/Home');
         } catch (error) {
             console.error(error);
-            handlerror(error.message);
+            handleError(error.message);
         }
     };
 
