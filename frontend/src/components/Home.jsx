@@ -21,7 +21,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Featured from "./Featured";
 import Footer from "./Footer";
-import PublicEvents from "./Public_events"; // Ensure case matches file name
+import Public_events from "./public_events";
 
 const HomePage = () => {
   return (
@@ -29,7 +29,7 @@ const HomePage = () => {
       <Navbar />
       <Featured />
       <br />
-      <PublicEvents />
+      <Public_events />
       <Footer />
     </>
   );
