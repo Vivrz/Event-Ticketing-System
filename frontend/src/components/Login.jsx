@@ -61,7 +61,7 @@ function Login() {
             // Handle user details (e.g., save to backend if required)
             localStorage.setItem('loggedInUser', user.displayName);
             handleSuccess(`Welcome, ${user.displayName}!`);
-            navigate('/Home');
+            navigate('/HomePage');
         } catch (error) {
             console.error(error);
             handleError(error.message);
