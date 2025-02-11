@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { handleError, handleSuccess } from './util';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { base_url } from '../../Hunter';
 
@@ -11,7 +11,6 @@ function Login() {
         email: '',
         password: ''
     });
-    const navigate = useNavigate();
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
@@ -45,7 +44,8 @@ function Login() {
                 handleSuccess(message);
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
-                navigate('/HomePage');
+                // Use Link for navigation
+                return <Link to="/HomePage" />;
             }
         } catch (err) {
             console.log("error");
@@ -61,7 +61,8 @@ function Login() {
             // Handle user details (e.g., save to backend if required)
             localStorage.setItem('loggedInUser', user.displayName);
             handleSuccess(`Welcome, ${user.displayName}!`);
-            navigate('/HomePage');
+            // Use Link for navigation
+            return <Link to="/HomePage" />;
         } catch (error) {
             console.error(error);
             handleError(error.message);
@@ -110,7 +111,7 @@ function Login() {
                 </div>
 
                 <div className="signup-link">
-                    Don't have an account? <a href="/SignUp">Signup</a>
+                    Don't have an account? <Link to="/SignUp">Signup</Link>
                 </div>
             </form>
             <ToastContainer />
