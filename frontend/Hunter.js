@@ -1,2 +1,2 @@
-const base_url = `https://event-ticketing-system-2-kxvh.onrender.com`;
-export default base_url;
+export const base_url = `https://event-ticket-system-tan.vercel.app`;
+// export default base_url;

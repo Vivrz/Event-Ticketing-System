@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import {  useNavigate } from 'react-router';
-import { base_url } from '../../Hunter';
+import {base_url}  from '../../Hunter';
 function Signup() {
 
     const [signupInfo , setsignupInfo] = useState({
