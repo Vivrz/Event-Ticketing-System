@@ -20,7 +20,7 @@ function OrganiserLogin() {
         setLoginInfo(copyLoginInfo);
     };
 
-    const handleLoginNavigation = () => {
+    const handle = () => {
         navigate('/Events');
     };
 
@@ -86,7 +86,7 @@ function OrganiserLogin() {
                     />
                 </div>
 
-                <button className="signup-btn" type="submit" onClick={handleLoginNavigation}>Login</button>
+                <button className="signup-btn" type="submit" onClick={handle}>Login</button>
                 <div className="signup-link">
                     Don't have an account? <a href="/organiser-signup">Signup</a>
                 </div>
