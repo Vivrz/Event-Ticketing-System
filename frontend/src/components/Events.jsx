@@ -49,7 +49,7 @@ const Events = () => {
 
   // Handle Event Click (Navigate to Booking Page)
   const handleEventClick = (event) => {
-    navigate(`/book-ticket/${event._id}, { state: { event } }`);
+    navigate(`/book-ticket/${event._id}`, { state: { event } });
   };
 
   return (
