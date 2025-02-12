@@ -1,16 +1,19 @@
+
 import { useState } from 'react';
 import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { handleError, handleSuccess } from './util';
-import { Link } from 'react-router-dom';
+import { handlerror, handleSuccess } from './util';
+import { useNavigate } from 'react-router';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { base_url } from '../../Hunter';
+import HomePage from './Home';
 
 function Login() {
     const [LoginInfo, setLoginInfo] = useState({
         email: '',
         password: ''
     });
+    const navigate = useNavigate();
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
@@ -26,7 +29,7 @@ function Login() {
         e.preventDefault();
         const { email, password } = LoginInfo;
         if (!email || !password) {
-            return handleError('Email and password are required!');
+            return handlerror('Email and password are required!');
         }
         try {
             const url = `${base_url}/Login`;
@@ -44,12 +47,11 @@ function Login() {
                 handleSuccess(message);
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
-                // Use Link for navigation
-                return <Link to="/HomePage" />;
+                navigate('/HomePage');
             }
         } catch (err) {
             console.log("error");
-            handleError(err);
+            handlerror(err);
         }
     };
 
@@ -61,11 +63,10 @@ function Login() {
             // Handle user details (e.g., save to backend if required)
             localStorage.setItem('loggedInUser', user.displayName);
             handleSuccess(`Welcome, ${user.displayName}!`);
-            // Use Link for navigation
-            return <Link to="/HomePage" />;
+            navigate('/Home');
         } catch (error) {
             console.error(error);
-            handleError(error.message);
+            handlerror(error.message);
         }
     };
 
@@ -111,7 +112,7 @@ function Login() {
                 </div>
 
                 <div className="signup-link">
-                    Don't have an account? <Link to="/SignUp">Signup</Link>
+                    Don't have an account? <a href="/SignUp">Signup</a>
                 </div>
             </form>
             <ToastContainer />
