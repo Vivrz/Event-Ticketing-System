@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -70,6 +69,10 @@ function Login() {
         }
     };
 
+    const handleSignupNavigation = () => {
+        navigate('/Signup');
+    };
+
     return (
         <div className="signup-container">
             <h1 className="signup-heading">Login</h1>
@@ -112,7 +115,7 @@ function Login() {
                 </div>
 
                 <div className="signup-link">
-                    Don't have an account? <a href="/SignUp">Signup</a>
+                    Don't have an account? <a href="#" onClick={handleSignupNavigation}>Signup</a>
                 </div>
             </form>
             <ToastContainer />
