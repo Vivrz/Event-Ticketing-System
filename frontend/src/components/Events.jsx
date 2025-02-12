@@ -1,8 +1,9 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "../styles/Events.module.css";
 import { base_url } from '../../Hunter';
+
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [showAddEventForm, setShowAddEventForm] = useState(false);
@@ -17,15 +18,19 @@ const Events = () => {
 
   // Fetch events
   useEffect(() => {
-    axios.get(`${base_url}/events`).then((res) => setEvents(res.data));
+    axios.get(`${base_url}/events`)
+      .then((res) => setEvents(res.data))
+      .catch((err) => console.error("Error fetching events:", err)); // Add error handling
   }, []);
 
   // Handle Add Event
   const handleAddEvent = () => {
-    axios.post(`${base_url}/add-event`, newEvent).then((res) => {
-      setEvents([...events, res.data]);
-      setShowAddEventForm(false);
-    });
+    axios.post(`${base_url}/add-event`, newEvent)
+      .then((res) => {
+        setEvents([...events, res.data]);
+        setShowAddEventForm(false);
+      })
+      .catch((err) => console.error("Error adding event:", err)); // Add error handling
   };
 
   // Handle Delete Event
@@ -33,23 +38,16 @@ const Events = () => {
     const confirmed = window.confirm("Are you sure you want to delete this event?");
     if (!confirmed) return;
 
-    axios
-  .delete(`${base_url}/delete-event/${eventId}`)
-  .then(() => {
-    console.log("Event deleted successfully"); // Add this for debugging
-    setEvents(events.filter((event) => event._id !== eventId));
-    alert("Event deleted successfully!");
-  })
-  .catch((err) => {
-    console.error("Error in delete request:", err);
-    alert("Error deleting event");
-  });
-
-  };
-
-  // Handle Event Click (Navigate to Booking Page)
-  const handleEventClick = (event) => {
-    navigate(`/book-ticket/${event._id}`, { state: { event } });
+    axios.delete(`${base_url}/delete-event/${eventId}`)
+      .then(() => {
+        console.log("Event deleted successfully"); // Add this for debugging
+        setEvents(events.filter((event) => event._id !== eventId));
+        alert("Event deleted successfully!");
+      })
+      .catch((err) => {
+        console.error("Error in delete request:", err);
+        alert("Error deleting event");
+      });
   };
 
   return (
