@@ -63,6 +63,10 @@ function OrganiserSignup() {
         }
     };
 
+    const handleLogin = () => {
+        navigate('/organiser-login');
+    };
+
     return (
         <div className="signup-container">
             <h1 className="signup-heading">Organiser Signup</h1>
@@ -106,7 +110,7 @@ function OrganiserSignup() {
 
                 <button className="signup-btn" type="submit">Signup</button>
                 <div className="signup-link">
-                    Already have an account? <a href="/organiser-login">Login</a>
+                    Already have an account? <a href="#" onClick={handleLogin}>Login</a>
                 </div>
             </form>
             <ToastContainer />
