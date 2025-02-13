@@ -64,7 +64,7 @@ function OrganiserSignup() {
     };
 
     const handleLogin = () => {
-        navigate('/organiser-login');
+        navigate('/OrganiserLogin');
     };
 
     return (
