@@ -14,33 +14,32 @@ const Events = () => {
     description: "",
   });
 
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
-  // Fetch events
+
   useEffect(() => {
     axios.get(`${base_url}/events`)
       .then((res) => setEvents(res.data))
-      .catch((err) => console.error("Error fetching events:", err)); // Add error handling
+      .catch((err) => console.error("Error fetching events:", err)); 
   }, []);
 
-  // Handle Add Event
   const handleAddEvent = () => {
     axios.post(`${base_url}/add-event`, newEvent)
       .then((res) => {
         setEvents([...events, res.data]);
         setShowAddEventForm(false);
       })
-      .catch((err) => console.error("Error adding event:", err)); // Add error handling
+      .catch((err) => console.error("Error adding event:", err));
   };
 
-  // Handle Delete Event
+ 
   const handleDeleteEvent = (eventId) => {
     const confirmed = window.confirm("Are you sure you want to delete this event?");
     if (!confirmed) return;
 
     axios.delete(`${base_url}/delete-event/${eventId}`)
       .then(() => {
-        console.log("Event deleted successfully"); // Add this for debugging
+        console.log("Event deleted successfully"); 
         setEvents(events.filter((event) => event._id !== eventId));
         alert("Event deleted successfully!");
       })
@@ -54,8 +53,8 @@ const Events = () => {
     <div className={styles.container}>
       <h1 className="h1Tag">Events</h1>
 
-      {/* Back Home Button */}
-      <button className={styles.backButton} onClick={() => navigate("/home")}>
+     
+      <button className={styles.backButton} onClick={() => navigate("/HomePage")}>
         Back Home
       </button>
 
@@ -66,7 +65,6 @@ const Events = () => {
         Add Event
       </button>
 
-      {/* Add Event Form */}
       {showAddEventForm && (
         <div className={styles.form}>
           <h2>Add Event</h2>
@@ -98,7 +96,7 @@ const Events = () => {
         </div>
       )}
 
-      {/* Events List */}
+
       <div className={styles.body}>
         {events.map((event) => (
           <div key={event._id} className={styles.events_item}>
