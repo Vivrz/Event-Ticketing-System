@@ -96,7 +96,7 @@ function Signup() {
 
                 <button className="signup-btn" type = "submit">Signup</button>
                 <div className="signup-link">
-                    Already have an account? <a href="#" onclick = {handleh}>Login</a>
+                    Already have an account? <button onclick = {handleh}>Login</button>
                 </div>
             </form>
             <ToastContainer/>

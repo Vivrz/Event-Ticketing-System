@@ -115,7 +115,7 @@ function Login() {
                 </div>
 
                 <div className="signup-link">
-                    Don't have an account? <a href="#" onClick={handleSignupNavigation}>Signup</a>
+                    Don't have an account? <button onClick={handleSignupNavigation}>Signup</button>
                 </div>
             </form>
             <ToastContainer />
