@@ -1,11 +1,11 @@
+
 import { useState } from 'react';
 import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
-import { useNavigate } from 'react-router-dom'; // Corrected import path
+import { useNavigate } from 'react-router';
 import Events from './Events';
 import { base_url } from '../../Hunter';
-
 function OrganiserLogin() {
     const [LoginInfo, setLoginInfo] = useState({
         email: '',
@@ -20,6 +20,9 @@ function OrganiserLogin() {
         setLoginInfo(copyLoginInfo);
     };
 
+    const handle = () => {
+        navigate('/OrganiserSignup');
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -84,7 +87,7 @@ function OrganiserLogin() {
 
                 <button className="signup-btn" type="submit">Login</button>
                 <div className="signup-link">
-                    Don't have an account? <Link to="/OrganiserSignup">Signup</Link>
+                    Don't have an account? <a href="#"  onClick={handle}>Signup</a>
                 </div>
             </form>
             <ToastContainer />
