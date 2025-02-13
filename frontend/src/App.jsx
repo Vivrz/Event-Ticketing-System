@@ -87,7 +87,7 @@ const App = () => {
       <Route path="/HomePage" element={<HomePage />} />
       <Route path="/organiser-signup" element={<OrganiserSignup />} />
       <Route path="/organiser-login" element={<OrganiserLogin />} />
-      <Route path="/Events" element={user ? <Events /> : <Navigate to="/Events" />} />
+      <Route path="/Events" element={user ? <Events /> : <Navigate to="/organiser-login" />} />
       <Route path="/Public_events" element={<Public_events />} />
       <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
       <Route path="*" element={<Navigate to="/" />} />
