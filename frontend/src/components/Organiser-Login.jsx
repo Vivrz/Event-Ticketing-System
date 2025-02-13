@@ -46,6 +46,7 @@ function OrganiserLogin() {
                 handleSuccess(message);
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
+                console.log("User logged in");
                 navigate('/Events'); 
             } else {
                 handlerror(message);
