@@ -19,6 +19,10 @@ function Signup() {
         copysingupInfo[name] = value;
         setsignupInfo(copysingupInfo);
     }
+
+    const handleh = () =>{
+        navigate("/Login");
+    }
     const handleSignup = async(e) => {
         e.preventDefault();
         const {name , email , password} = signupInfo;
@@ -92,7 +96,7 @@ function Signup() {
 
                 <button className="signup-btn" type = "submit">Signup</button>
                 <div className="signup-link">
-                    Already have an account? <a href="/Login">Login</a>
+                    Already have an account? <a href="#" onclick = {handleh}>Login</a>
                 </div>
             </form>
             <ToastContainer/>
