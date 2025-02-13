@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   const handleOrganizerLogin = () => {
-    navigate('/organiser-signup');
+    navigate('/OrganiserSignup');
   };
 
   const handleClick = () => {
