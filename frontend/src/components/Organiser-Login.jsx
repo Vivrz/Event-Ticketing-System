@@ -4,7 +4,6 @@ import './signup.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import { useNavigate } from 'react-router';
-import Events from './Events';
 import { base_url } from '../../Hunter';
 function OrganiserLogin() {
     const [LoginInfo, setLoginInfo] = useState({
@@ -33,7 +32,7 @@ function OrganiserLogin() {
         }
 
         try {
-            const url = `${base_url}/Organiser-Login`; // Update the API endpoint for organiser login
+            const url = `${base_url}/Organiser-Login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
