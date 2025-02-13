@@ -88,7 +88,7 @@ function OrganiserLogin() {
 
                 <button className="signup-btn" type="submit" onClick={handle}>Login</button>
                 <div className="signup-link">
-                    Don't have an account? <a href="/organiser-signup">Signup</a>
+                    Don't have an account? <a href="/OrganiserSignup">Signup</a>
                 </div>
             </form>
             <ToastContainer />
