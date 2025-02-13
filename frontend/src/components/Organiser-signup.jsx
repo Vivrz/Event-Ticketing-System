@@ -49,7 +49,7 @@ function OrganiserSignup() {
             if (success) {
                 toast.success(message);
                 setTimeout(() => {
-                    navigate('/organiser-login');
+                    navigate('/OrganiserLogin');
                 }, 1000);
             } else {
                 toast.error(message);

@@ -21,7 +21,7 @@ function OrganiserLogin() {
     };
 
     const handle = () => {
-        navigate('/Events');
+        navigate('/OrganiserSignup');
     };
 
     const handleLogin = async (e) => {
@@ -47,7 +47,6 @@ function OrganiserLogin() {
                 handleSuccess(message);
                 localStorage.setItem('token', jwtoken);
                 localStorage.setItem('loggedInUser', name);
-                // Redirect to Events page
                 navigate('/Events'); 
             } else {
                 handlerror(message);
@@ -86,9 +85,9 @@ function OrganiserLogin() {
                     />
                 </div>
 
-                <button className="signup-btn" type="submit" onClick={handle}>Login</button>
+                <button className="signup-btn" type="submit">Login</button>
                 <div className="signup-link">
-                    Don't have an account? <a href="/OrganiserSignup">Signup</a>
+                    Don't have an account? <a href="#"  onClick={handle}>Signup</a>
                 </div>
             </form>
             <ToastContainer />
