@@ -9,7 +9,7 @@ import OrganiserLogin from "./components/Organiser-Login";
 import Events from "./components/Events";
 import Public_events from "./components/public_events";
 import AnotherPublic_events from "./components/Another_public";
-import { auth, provider, signInWithPopup } from "./components/firsbase"; // Ensure this path is correct
+import { auth, provider, signInWithPopup } from "./components/firsbase"; 
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -37,7 +37,7 @@ const App = () => {
       <Route path="/HomePage" element={<HomePage />} />
       <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
       <Route path="/OrganiserLogin" element={<OrganiserLogin />} />
-      <Route path="/Events" element={user ? <Events /> : <Navigate to="/OrganiserLogin" />} />
+      <Route path="/Events" element={<Events/>}/>
       <Route path="/Public_events" element={<Public_events />} />
       <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
       <Route path="*" element={<Navigate to="/" />} />
