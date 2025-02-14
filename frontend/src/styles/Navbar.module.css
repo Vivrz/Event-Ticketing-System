@@ -1,13 +1,14 @@
+/* Navbar CSS */
+
 /* General body layout */
 body {
-    background: linear-gradient(to bottom, #f8f9fa, #e0e0e0); /* Softer gradient */
+    background: linear-gradient(to bottom, #f8f9fa, #e0e0e0);
     margin: 0;
-    display: block;
     font-family: "Roboto", sans-serif;
 }
 
 /* Navbar styling */
-.container {
+.navbar-container {
     background-image: linear-gradient(to right, #401a29, #8a3758);
     height: 100px;
     width: 100%;
@@ -20,15 +21,8 @@ body {
     z-index: 1000;
 }
 
-/* Navbar animations */
-@keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-}
-
 .logo_text {
     font-size: 40px;
-    margin: 0;
     font-weight: 900;
     color: whitesmoke;
     transition: transform 0.3s ease;
@@ -38,26 +32,25 @@ body {
     transform: scale(1.1);
 }
 
-.menulink {
+.nav-links {
     display: flex;
     gap: 20px;
 }
 
-.menulink span {
+.nav-links span {
     font-size: 17px;
     cursor: pointer;
     transition: color 0.3s, transform 0.3s;
     color: whitesmoke;
 }
 
-.menulink span:hover {
+.nav-links span:hover {
     color: #ffd700;
     transform: translateY(-3px);
 }
 
 /* Buttons */
-.notified button,
-.logoutButton {
+.btn {
     cursor: pointer;
     padding: 10px 20px;
     color: white;
@@ -68,169 +61,47 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.notified button {
+.notified-btn {
     background-color: #ff69b4;
-    margin: 0 10px;
 }
 
-.notified button:hover {
+.notified-btn:hover {
     background-color: #ff1493;
     transform: translateY(-3px);
 }
 
-.logoutButton {
+.logout-btn {
     background-color: #ff6347;
-    margin: 0 10px;
 }
 
-.logoutButton:hover {
+.logout-btn:hover {
     background-color: #e5533d;
     transform: translateY(-3px);
 }
 
 /* User Box */
-.userBox {
+.user-box {
     background-color: #ff69b4;
     color: white;
     font-weight: 900;
     border: 2px solid #8a3758;
     border-radius: 10px;
     padding: 10px 20px;
-    margin: 0 10px;
     text-align: center;
-    display: inline-block;
     font-size: 14px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.userBox:hover {
+.user-box:hover {
     background-color: #8a3758;
     transform: translateY(-3px);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Fix for visibility issue - Full screen container */
-.main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 100px);
-    width: 100%;
-    overflow: auto;
-    padding: 20px;
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Signup/Login Form */
-.signup-container {
-    max-width: 500px;
-    width: 90%;
-    padding: 2rem;
-    background: linear-gradient(135deg, #ffffff, #e0e0e0);
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(0.95);
-    animation: scaleUp 0.5s forwards;
-    text-align: center;
-}
-
-@keyframes scaleUp {
-    to { transform: scale(1); }
-}
-
-.signup-heading {
-    font-size: 2.5rem;
-    text-align: center;
-    color: #333;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.signup-heading::after {
-    content: '';
-    width: 50px;
-    height: 3px;
-    background-color: #8a3758;
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.signup-label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #555;
-    transition: color 0.3s;
-}
-
-.signup-input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.signup-input:focus {
-    border-color: #8a3758;
-    box-shadow: 0 0 8px rgba(138, 55, 88, 0.4);
-}
-
-.signup-btn {
-    padding: 0.75rem 2rem;
-    background-color: #8a3758;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    align-self: center;
-    width: 100%;
-}
-
-.signup-btn:hover {
-    background-color: #5a1e3c;
-    transform: translateY(-3px);
-}
-
-/* Google Sign-In Button */
-.google-signin-btn {
-    padding: 0.75rem 2rem;
-    background-color: #4285f4;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    transition: background-color 0.3s, transform 0.3s;
-    margin-top: 1rem;
-}
-
-.google-signin-btn:hover {
-    background-color: #357ae8;
-    transform: translateY(-3px);
-}
-
-/* Responsive Design */
+/* Responsive Navbar */
 @media (max-width: 768px) {
-    .container {
+    .navbar-container {
         flex-direction: column;
         height: auto;
         padding: 20px;
@@ -241,14 +112,9 @@ body {
         font-size: 30px;
     }
 
-    .menulink {
+    .nav-links {
         flex-direction: column;
         gap: 10px;
         margin-top: 10px;
-    }
-
-    .signup-container {
-        width: 100%;
-        max-width: 400px;
     }
 }
