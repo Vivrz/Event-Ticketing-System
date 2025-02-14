@@ -6,11 +6,14 @@ const Organiser = require('./Models/OrgansierSchema.js');
 
 const {signupValidation , LoginValidation} = require('./Middleware/AuthValidation.js');
 const connectionWithDB = require('./Models/DB.js');
-connectionWithDB();
+connectionWithDB().catch(err => {
+  console.error("Database connection error:", err);
+  process.exit(1);
+});
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['https://event-ticket-system-tan.vercel.app' , 'https://event-ticketing-system-11.onrender.com' ],
+    origin: ['http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true 
@@ -86,6 +89,10 @@ app.post("/Organiser-Login" ,LoginValidation, async(req , res) => {
       if(!ispassword){
           return res.status(403)
           .json({message : errormsg , success : false})
+      }
+
+      if (!process.env.JWT_SECRET) {
+        return res.status(500).json({ message: "JWT Secret is not defined", success: false });
       }
 
       const jwtoken = jwt.sign(
@@ -170,6 +177,10 @@ app.post("/Login" ,LoginValidation, async(req , res) => {
         if(!ispassword){
             return res.status(403)
             .json({message : errormsg , success : false})
+        }
+
+        if (!process.env.JWT_SECRET) {
+          return res.status(500).json({ message: "JWT Secret is not defined", success: false });
         }
 
         const jwtoken = jwt.sign(
