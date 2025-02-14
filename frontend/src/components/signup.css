@@ -1,152 +1,245 @@
-/* General Body Layout */
+/* /* General body layout */
 body {
-    background: linear-gradient(135deg, #dfe9f3, #ffffff); /* Soft gradient background */
+    background-color: #f0f2f5; /* Softer background color */
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Poppins", sans-serif;
+    display: block;
+    font-family: "Roboto", sans-serif;
 }
 
-/* Centering the login/signup container */
+/* Navbar styling */
+.container {
+    background-image: linear-gradient(to right, #401a29, #8a3758);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Better spacing */
+    padding: 0 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.logo_text {
+    font-size: 40px;
+    margin: 0;
+    font-weight: 900;
+    color: whitesmoke;
+    transition: transform 0.3s ease;
+}
+
+.logo_text:hover {
+    transform: scale(1.1);
+}
+
+.menulink {
+    display: flex;
+    gap: 20px;
+}
+
+.menulink span {
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    color: whitesmoke;
+}
+
+.menulink span:hover {
+    color: #ffd700; /* Gold color on hover */
+    transform: translateY(-3px);
+}
+
+.notified button,
+.logoutButton {
+    cursor: pointer;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notified button {
+    background-color: #ff69b4; /* Hot pink */
+    margin: 0 10px;
+}
+
+.notified button:hover {
+    background-color: #ff1493; /* Deep pink */
+    transform: translateY(-3px);
+}
+
+.logoutButton {
+    background-color: #ff6347; /* Tomato color */
+    margin: 0 10px;
+}
+
+.logoutButton:hover {
+    background-color: #e5533d;
+    transform: translateY(-3px);
+}
+
+.userBox {
+    background-color: #ff69b4;
+    color: white;
+    font-weight: 900;
+    border: 2px solid #8a3758;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.userBox:hover {
+    background-color: #8a3758;
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Centering the login/signup box with fade-in animation */
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
-}
-
-/* Form Container Styling */
-.signup-container {
-    max-width: 450px;
-    padding: 2.5rem;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    animation: fadeIn 0.7s ease-in;
+    height: calc(100vh - 100px);
+    animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Heading Styling */
+.signup-container {
+    max-width: 500px;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    transform: scale(0.95);
+    animation: scaleUp 0.5s forwards;
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scale(1);
+    }
+}
+
 .signup-heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
     color: #333;
-    font-weight: 600;
     margin-bottom: 1.5rem;
     position: relative;
 }
 
 .signup-heading::after {
     content: '';
-    width: 60px;
+    width: 50px;
     height: 3px;
-    background-color: #6a11cb;
+    background-color: #8a3758;
     display: block;
     margin: 10px auto 0;
     border-radius: 2px;
 }
 
-/* Form Elements Styling */
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
 }
 
 .signup-label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #444;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    transition: color 0.3s;
 }
 
 .signup-input {
     width: 100%;
-    padding: 0.85rem;
+    padding: 0.75rem;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
-    outline: none;
 }
 
 .signup-input:focus {
-    border-color: #6a11cb;
-    box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+    border-color: #8a3758;
+    box-shadow: 0 0 8px rgba(138, 55, 88, 0.4);
 }
 
-/* Submit Button */
 .signup-btn {
-    padding: 0.85rem;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 0.75rem 2rem;
+    background-color: #8a3758;
     border: none;
     border-radius: 8px;
     color: white;
     font-size: 1.2rem;
-    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: center;
     width: 100%;
 }
 
 .signup-btn:hover {
-    background: linear-gradient(135deg, #5a0fb5, #1e62d0);
+    background-color: #5a1e3c;
     transform: translateY(-3px);
 }
 
-/* Sign-in/Sign-up Link */
 .signup-link {
     margin-top: 1rem;
     font-size: 1rem;
+    text-align: center;
     color: #333;
 }
 
 .signup-link a {
-    color: #6a11cb;
+    color: #8a3758;
     text-decoration: none;
-    font-weight: 600;
     transition: color 0.3s;
 }
 
 .signup-link a:hover {
-    color: #4c0ea8;
+    color: #5a1e3c;
     text-decoration: underline;
 }
 
-/* Google Sign-In/Sign-Up Button */
+/* Google Sign-In/Sign-Up Button Styling */
 .google-signin-btn {
-    padding: 0.85rem;
-    background: #4285f4;
+    padding: 0.75rem 2rem;
+    background-color: #4285f4; /* Google blue */
     border: none;
     border-radius: 8px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
     width: 100%;
-    transition: background 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
     margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .google-signin-btn:hover {
-    background: #357ae8;
+    background-color: #357ae8; /* Darker Google blue */
     transform: translateY(-3px);
-}
-
-.google-signin-btn img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
 }
