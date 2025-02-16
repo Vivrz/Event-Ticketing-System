@@ -7,8 +7,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Remove any background image */
-    background-image: none;
+    /* Re-add the background image */
+    background-image: url('C:\Users\hellr\AppData\Local\Temp\d6651c23-898d-428d-adf4-9590ac8682fa_gradient-purple-color-background-modern-wave-abstract-designs.zip.2fa\5_asfasw112.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Signup Container */
