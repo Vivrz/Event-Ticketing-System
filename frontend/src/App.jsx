@@ -31,8 +31,8 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={user ? <Navigate to="/HomePage" /> : <Navigate to="/login" />} />
-      <Route path="/login" element={<Login onGoogleLogin={handleGoogleLogin} />} />
+      <Route path="/" element={user ? <Navigate to="/HomePage" /> : <Navigate to="/Login" />} />
+      <Route path="/Login" element={<Login onGoogleLogin={handleGoogleLogin} />} />
       <Route path="/Signup" element={<Signup />} />
       <Route path="/HomePage" element={<HomePage />} />
       <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
