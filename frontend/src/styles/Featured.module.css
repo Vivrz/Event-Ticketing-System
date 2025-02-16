@@ -1,82 +1,94 @@
-.wrapper{
+/* Wrapper */
+.wrapper {
     position: relative;
 }
 
-.feature{
+/* Feature Section */
+.feature {
     height: 90vh;
-    background-image: linear-gradient(to right, #401a29 , #8a3758);
-    color : whitesmoke;
+    background: linear-gradient(to right, #401a29, #8a3758);
+    color: whitesmoke;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+    transition: background 0.3s ease;
 }
-.text{
+
+.text {
     display: flex;
     flex-direction: column;
-    margin: 5%;
     width: 40%;
+    animation: fadeIn 1s ease-in-out;
 }
-.text span:first-child{
+
+.text span:first-child, .text h1 {
     font-size: 35px;
 }
-.text h1{
-    font-size: 35px;
-}
-.image{
+
+.image {
     display: flex;
     justify-content: flex-end;
 }
-.image video{
+
+.image video {
     width: 80%;
-    height:95%;
+    height: 95%;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-
-.search{
+/* Search Bar */
+.search {
     width: 80%;
-    background-color: #141316;
+    background: rgba(20, 19, 22, 0.9);
     color: whitesmoke;
-    padding: 10px;
+    padding: 15px;
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     right: 10%;
-    height: 15%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.search input{
-    border : none;
+.search input, .search select {
+    border: none;
     outline: none;
-    color: whitesmoke;
     background-color: transparent;
-    font-size: 15px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search input {
     color: #f42155;
 }
 
-.search select{
-    border : none;
-    outline: none;
-    background-color: transparent;
+.search select {
     color: #f9649d;
-    font-size: 20px;
-    font-weight: 500;
-    width: 150px;
     padding: 10px;
-    font-family:'Roboto' ;
+    font-family: 'Roboto';
 }
 
-.events_button{
-    background-color: #f9649d;
-    padding: 10px;
+.events_button {
+    background: #f9649d;
+    padding: 12px;
     height: 50px;
     width: 200px;
     color: #fff;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 18px;
-    border : none;
+    border: none;
     border-radius: 40px;
     cursor: pointer;
-}   
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.events_button:hover {
+    background: #d85182;
+    transform: scale(1.05);
+}

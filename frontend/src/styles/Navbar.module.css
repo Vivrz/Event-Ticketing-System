@@ -1,6 +1,5 @@
-/* Navbar.css */
 .navbar {
-    background-image: linear-gradient(to right, #401a29 ,#8a3758 );
+    background: linear-gradient(to right, #401a29, #8a3758);
     height: 100px;
     width: 100%;
     display: flex;
@@ -8,71 +7,63 @@
     justify-content: center;
     position: relative;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo_text {
     font-size: 40px;
-    margin: 0px 30px;
     font-weight: 900;
     font-family: "Roboto";
     color: whitesmoke;
+    transition: color 0.3s ease;
 }
 
-.logo {
-    flex: 1;
-}
-
-.menulink {
-    flex: 2;
+.logo_text:hover {
+    color: #f9649d;
 }
 
 .menulink span {
     margin-right: 10%;
     font-size: 17px;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
     color: whitesmoke;
 }
 
-.notified button {
-    cursor: pointer;
-    background-color: pink;
-    padding: 15px;
-    color: white;
-    font-weight: 900;
-    border: none;
-    margin: 0px 30px;
-    border-radius: 5px;
+.menulink span:hover {
+    color: #f9649d;
+    transform: translateY(-2px);
 }
 
-.notified button:hover {
-    background-color: #8a3758;
+/* Buttons */
+.notified button, .logoutButton {
+    cursor: pointer;
+    padding: 15px;
     color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.notified button {
+    background: pink;
+}
+
+.notified button:hover, .logoutButton:hover {
+    background: #8a3758;
     transform: translateY(-2px);
 }
 
 .logoutButton {
-    cursor: pointer;
-    background-color: #ff6347;
-    padding: 15px;
-    color: white;
-    font-weight: 900;
-    border: none;
-    margin: 0px 30px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    background: #ff6347;
 }
 
-.logoutButton:hover {
-    background-color: #8a3758;
-    color: white;
-    transform: translateY(-2px);
-}
-
+/* User Box */
 .userBox {
-    background-color: pink;
+    background: pink;
     color: white;
-    font-weight: 900;
+    font-weight: bold;
     border: 2px solid #8a3758;
     border-radius: 10px;
     padding: 10px 15px;
@@ -85,7 +76,7 @@
 }
 
 .userBox:hover {
-    background-color: #8a3758;
+    background: #8a3758;
     color: white;
     transform: translateY(-2px);
 }
