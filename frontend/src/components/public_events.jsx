@@ -46,7 +46,7 @@ const Public_events = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.publicEvenrt_container}>
       <h1 className="h1Tag">Available Events</h1>
 
       {/* Events List */}
