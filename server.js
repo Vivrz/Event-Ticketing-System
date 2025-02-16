@@ -13,7 +13,7 @@ connectionWithDB().catch(err => {
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['https://event-ticketing-system-11.onrender.com'],
+    origin: ['https://event-ticket-system-tan.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true 
