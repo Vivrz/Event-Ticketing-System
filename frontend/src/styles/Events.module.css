@@ -240,3 +240,64 @@ body {
     transform: translateY(0);
   }
 }
+
+.deleteButton {
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+}
+
+/* Optional: Add a delete icon style if you're using one */
+.deleteButton svg,
+.deleteButton img {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.deleteButton:hover svg,
+.deleteButton:hover img {
+  transform: scale(1.1);
+}
+
+/* You can add this class to the parent container of the delete button for better positioning */
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Responsive adjustments for the delete button */
+@media screen and (max-width: 768px) {
+  .deleteButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .buttonContainer {
+    padding: 5px;
+  }
+}
