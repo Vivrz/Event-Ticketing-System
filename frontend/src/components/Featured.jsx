@@ -11,7 +11,7 @@ const Featured = () => {
       <div className={styles.feature}>
         <div className={styles.text}>
           <span>Experience more</span>
-          <h1>The cheapest ticekts on the internet , period</h1>
+          <h1>The cheapest tickets on the internet, period</h1>
           <span>
             MNX Events is a comprehensive website designed to simplify event
             discovery, booking, and management. Whether you're a seasoned event

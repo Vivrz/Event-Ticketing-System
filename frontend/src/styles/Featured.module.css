@@ -4,10 +4,14 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 /* Feature Section */
 .feature {
+    width: 100%;
     min-height: 90vh;
     background: linear-gradient(to right, #401a29, #8a3758);
     color: whitesmoke;
@@ -25,6 +29,7 @@
     display: flex;
     flex-direction: column;
     width: 60%;
+    max-width: 900px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
 }
@@ -39,6 +44,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    width: 100%;
 }
 
 .image video {
@@ -51,7 +57,7 @@
 
 /* Search Bar */
 .search {
-    width: 80%;
+    width: 90%;
     max-width: 900px;
     background: rgba(20, 19, 22, 0.9);
     color: whitesmoke;
@@ -62,30 +68,34 @@
     justify-content: space-between;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    gap: 10px;
+    margin-top: 30px;
+    gap: 15px;
 }
 
+/* Inputs inside search */
 .search input, .search select {
     border: none;
     outline: none;
     background-color: transparent;
     font-size: 16px;
     font-weight: bold;
+    padding: 10px;
 }
 
+/* Input Field */
 .search input {
     color: #f42155;
     width: 100%;
-    max-width: 250px;
-    padding: 10px;
+    max-width: 280px;
 }
 
+/* Dropdown */
 .search select {
     color: #f9649d;
-    padding: 10px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    width: 100%;
+    max-width: 280px;
 }
 
 /* Button */
@@ -93,7 +103,7 @@
     background: #f9649d;
     padding: 12px;
     height: 50px;
-    width: 200px;
+    width: 220px;
     color: white;
     font-weight: bold;
     font-size: 18px;
@@ -105,18 +115,25 @@
 
 .events_button:hover {
     background: #d85182;
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .text {
+        width: 75%;
+    }
+}
+
 @media (max-width: 768px) {
     .feature {
         flex-direction: column;
         text-align: center;
+        padding: 8%;
     }
 
     .text {
-        width: 80%;
+        width: 85%;
     }
 
     .search {
@@ -129,10 +146,11 @@
     .search input, .search select {
         width: 100%;
         text-align: center;
+        max-width: none;
     }
 
     .events_button {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
     }
 }
