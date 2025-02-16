@@ -4,56 +4,60 @@ body {
   font-family: 'Arial', sans-serif;
   background: url('https://img.freepik.com/free-vector/gradient-purple-color-background-modern-wave-abstract-designs_343694-2361.jpg?t=st=1739689334~exp=1739692934~hmac=2b805400ac00341392ebf129561600a0d105c328965cf1bff1c37ad9a93d7536&w=1380') no-repeat center center/cover;
   color: #333;
+  line-height: 1.6;
 }
 
 .eventlist {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
   animation: slideFromBottom 1.2s ease-out;
 }
 
 .h1tag {
   text-align: center;
-  margin-bottom: 20px;
-  color: #ff7f50;
-  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #6a1b9a; /* A more professional purple */
+  font-size: 2.8rem;
+  font-weight: 700;
   animation: fadeZoomIn 1.2s ease;
 }
 
 .addButton {
   display: block;
-  margin: 20px auto;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #ff7f50, #ff4500);
+  margin: 30px auto;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0); /* Gradient with professional purple tones */
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   animation: pulse 1.5s infinite;
 }
 
 .addButton:hover {
-  background: linear-gradient(135deg, #ff4500, #ff7f50);
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+  transform: scale(1.05);
 }
 
 .body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
 }
 
 .events_item {
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   animation: zoomIn 0.8s ease;
@@ -61,78 +65,138 @@ body {
 
 .events_item:hover {
   transform: translateY(-10px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .form {
-  max-width: 450px;
-  margin: 30px auto;
-  padding: 30px;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
   border-radius: 20px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
   animation: slideFromTop 1.2s ease;
-  border: 3px solid #ff6b81;
+  border: 2px solid #e0e0e0;
 }
 
 .form h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #ff1493;
-  font-size: 2rem;
-  text-shadow: 2px 2px 5px rgba(255, 20, 147, 0.5);
+  margin-bottom: 25px;
+  color: #6a1b9a;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(106, 27, 154, 0.1);
 }
 
 .form input,
 .form textarea {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
-  border: 2px solid #ff6b81;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
   border-radius: 12px;
   font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .form input:focus,
 .form textarea:focus {
   outline: none;
-  border-color: #ff1493;
-  box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.7);
+  border-color: #9c27b0;
+  box-shadow: 0px 0px 10px rgba(156, 39, 176, 0.2);
 }
 
 .form button {
   width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  padding: 15px;
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
   color: white;
   border: none;
-  border-radius: 25px;
-  font-size: 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  font-weight: bold;
   text-transform: uppercase;
 }
 
 .form button:hover {
-  background: linear-gradient(135deg, #ff69b4, #ff1493);
-  transform: scale(1.08);
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+  transform: scale(1.05);
 }
 
 .backButton {
-  background-color: #ff69b4;
+  background-color: #9c27b0;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 10px 0;
+  padding: 12px 24px;
+  margin: 20px 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .backButton:hover {
-  background-color: #ff1493;
-  transform: scale(1.1);
+  background-color: #6a1b9a;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
