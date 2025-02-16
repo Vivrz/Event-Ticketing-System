@@ -7,6 +7,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* Remove any background image */
+    background-image: none;
 }
 
 /* Signup Container */
