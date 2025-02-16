@@ -1,15 +1,4 @@
-/* Wrapper */
-.wrapper {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-}
-
-/* Feature Section */
+/* 🌟 Feature Section */
 .feature {
     width: 100%;
     min-height: 90vh;
@@ -24,7 +13,7 @@
     transition: background 0.3s ease;
 }
 
-/* Text */
+/* 🌟 Text Content */
 .text {
     display: flex;
     flex-direction: column;
@@ -39,7 +28,7 @@
     font-weight: bold;
 }
 
-/* Image */
+/* 🌟 Image Section */
 .image {
     display: flex;
     justify-content: center;
@@ -55,7 +44,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Search Bar */
+/* 🌟 Search Bar */
 .search {
     width: 90%;
     max-width: 900px;
@@ -72,7 +61,7 @@
     gap: 15px;
 }
 
-/* Inputs inside search */
+/* 🌟 Inputs */
 .search input, .search select {
     border: none;
     outline: none;
@@ -98,7 +87,7 @@
     max-width: 280px;
 }
 
-/* Button */
+/* 🌟 Button */
 .events_button {
     background: #f9649d;
     padding: 12px;
@@ -118,7 +107,7 @@
     transform: scale(1.07);
 }
 
-/* Responsive Design */
+/* 🌟 Responsive Feature */
 @media (max-width: 1024px) {
     .text {
         width: 75%;
