@@ -1,149 +1,84 @@
-/* Global Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f4f4f9;
+  font-family: 'Arial', sans-serif;
+  background: url('https://img.freepik.com/free-vector/gradient-purple-color-background-modern-wave-abstract-designs_343694-2361.jpg?t=st=1739689334~exp=1739692934~hmac=2b805400ac00341392ebf129561600a0d105c328965cf1bff1c37ad9a93d7536&w=1380') no-repeat center center/cover;
   color: #333;
 }
 
-/* Container */
 .eventlist {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-out;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  animation: slideFromBottom 1.2s ease-out;
 }
 
-/* Heading */
 .h1tag {
   text-align: center;
-  font-size: 2.8rem;
-  color: #444;
-  font-weight: 600;
-  margin-bottom: 25px;
-  position: relative;
-}
-
-.h1tag::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #ff5733;
-  margin: 10px auto;
-  border-radius: 5px;
-}
-
-/* Buttons */
-.addButton,
-.backButton {
-  display: inline-block;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  color: #ff7f50;
+  font-size: 2.5rem;
+  animation: fadeZoomIn 1.2s ease;
 }
 
 .addButton {
-  background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
-  margin-right: 15px;
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse 1.5s infinite;
 }
 
 .addButton:hover {
-  background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff4500, #ff7f50);
+  transform: scale(1.1);
 }
 
-.backButton {
-  background: linear-gradient(135deg, #6c757d, #343a40);
-}
-
-.backButton:hover {
-  background: linear-gradient(135deg, #343a40, #6c757d);
-  transform: scale(1.05);
-}
-
-/* Events Grid */
 .body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-/* Event Card */
 .events_item {
-  background: #ffffff;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  padding: 20px;
-  text-align: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: zoomIn 0.8s ease;
 }
 
 .events_item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Event Title */
-.events_item h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-/* Event Details */
-.events_item p {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 8px;
-}
-
-/* Delete Button */
-.deleteButton {
-  padding: 10px 18px;
-  font-size: 0.9rem;
-  color: white;
-  background: linear-gradient(135deg, #ff3b3b, #c92a2a);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.deleteButton:hover {
-  background: linear-gradient(135deg, #c92a2a, #ff3b3b);
-  transform: scale(1.05);
-}
-
-/* Event Form */
 .form {
   max-width: 450px;
   margin: 30px auto;
   padding: 30px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 0.8s ease-out;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideFromTop 1.2s ease;
 }
 
 .form h2 {
   text-align: center;
-  font-size: 1.8rem;
-  color: #222;
-  font-weight: 600;
   margin-bottom: 20px;
+  color: #ff4500;
+  font-size: 1.8rem;
 }
 
 .form input,
@@ -153,54 +88,47 @@ body {
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .form input:focus,
 .form textarea:focus {
-  border-color: #ff5733;
-  box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.3);
   outline: none;
+  border-color: #ff4500;
+  box-shadow: 0px 0px 8px rgba(255, 69, 0, 0.5);
 }
 
-/* Form Submit Button */
 .form button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
   color: white;
-  font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
+  font-size: 18px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .form button:hover {
-  background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+  background: linear-gradient(135deg, #ff4500, #ff7f50);
   transform: scale(1.05);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.backButton {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.backButton:hover {
+  background-color: #ff4500;
+  transform: scale(1.1);
 }
