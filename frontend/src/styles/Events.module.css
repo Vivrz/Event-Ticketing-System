@@ -1,71 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-.eventlist {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-  animation: slideFromBottom 1.2s ease-out;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-}
-
-.h1tag {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #6a1b9a;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-  animation: fadeZoomIn 1.2s ease;
-}
-
-.addButton {
-  display: block;
-  margin: 30px auto;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: clamp(16px, 2vw, 18px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.addButton:hover {
-  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
-}
-
-.addButton:active {
-  transform: translateY(0);
-}
-
-.body {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
 .events_item {
   background: #ffffff;
   border-radius: 20px;
@@ -78,22 +10,26 @@ body {
   flex-direction: column;
   position: relative;
   border: 1px solid rgba(156, 39, 176, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
 }
 
 .events_item:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 30px rgba(106, 27, 154, 0.15);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(106, 27, 154, 0.2);
+  background: linear-gradient(135deg, #f8f8f8, #ffffff);
 }
 
 .events_item img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  border-bottom: 5px solid #9c27b0;
 }
 
 .events_item:hover img {
   transform: scale(1.05);
+  opacity: 0.9;
 }
 
 .events_item_content {
@@ -102,18 +38,23 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(249, 244, 251, 0.95) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 244, 251, 0.95) 100%);
+  border-top: 2px solid rgba(156, 39, 176, 0.15);
 }
 
 .events_item_title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #6a1b9a;
   margin: 0;
   line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.events_item:hover .events_item_title {
+  color: #9c27b0;
 }
 
 .events_item_date {
@@ -130,6 +71,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 .events_item_footer {
@@ -139,6 +81,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 0.9rem;
+  color: #9c27b0;
 }
 
 .events_item_badge {
@@ -148,9 +92,14 @@ body {
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Add this subtle shine effect on hover */
+.events_item:hover .events_item_badge {
+  background: #9c27b0;
+  color: white;
+}
+
 .events_item::after {
   content: '';
   position: absolute;
@@ -158,12 +107,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transform: rotate(45deg);
   transition: all 0.3s ease;
   opacity: 0;
@@ -171,235 +115,4 @@ body {
 
 .events_item:hover::after {
   opacity: 1;
-}
-
-@media screen and (max-width: 768px) {
-  .events_item {
-    border-radius: 15px;
-  }
-  
-  .events_item img {
-    height: 180px;
-  }
-  
-  .events_item_content {
-    padding: 15px;
-    gap: 8px;
-  }
-  
-  .events_item_title {
-    font-size: 1.2rem;
-  }
-}
-
-.form {
-  max-width: 600px;
-  width: 90%;
-  margin: 40px auto;
-  padding: clamp(20px, 5vw, 40px);
-  background: linear-gradient(135deg, #ffffff, #f8f8f8);
-  border-radius: 20px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-  animation: slideFromTop 1.2s ease;
-  border: 2px solid #e0e0e0;
-  position: relative;
-}
-
-.form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #6a1b9a, #9c27b0);
-  border-radius: 20px 20px 0 0;
-}
-
-.form h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #6a1b9a;
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
-  font-weight: 700;
-  text-shadow: 2px 2px 5px rgba(106, 27, 154, 0.1);
-}
-
-.form input,
-.form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: clamp(14px, 1.5vw, 16px);
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.95);
-  box-sizing: border-box;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: #9c27b0;
-  box-shadow: 0px 0px 10px rgba(156, 39, 176, 0.2);
-  transform: translateY(-2px);
-}
-
-.form button {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: clamp(16px, 2vw, 18px);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.form button:hover {
-  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
-}
-
-.form button:active {
-  transform: translateY(0);
-}
-
-.backButton {
-  background-color: #9c27b0;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  margin: 20px;
-  cursor: pointer;
-  border-radius: 30px;
-  font-size: clamp(14px, 1.5vw, 16px);
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.backButton:hover {
-  background-color: #6a1b9a;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .eventlist {
-    margin: 10px;
-    padding: 20px;
-  }
-
-  .body {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .form {
-    padding: 20px;
-    margin: 20px auto;
-  }
-}
-
-/* Enhanced animations */
-@keyframes slideFromBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeZoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideFromTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.deleteButton {
-  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 30px;
-  font-size: clamp(14px, 1.5vw, 16px);
-  font-weight: 600;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.deleteButton:hover {
-  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
-}
-
-.deleteButton:active {
-  transform: translateY(0);
-}
-
-/* Optional: Add a delete icon style if you're using one */
-.deleteButton svg,
-.deleteButton img {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.deleteButton:hover svg,
-.deleteButton:hover img {
-  transform: scale(1.1);
-}
-
-/* You can add this class to the parent container of the delete button for better positioning */
-.buttonContainer {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
-
-/* Responsive adjustments for the delete button */
-@media screen and (max-width: 768px) {
-  .deleteButton {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-  
-  .buttonContainer {
-    padding: 5px;
-  }
 }
