@@ -68,17 +68,19 @@ body {
   max-width: 450px;
   margin: 30px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   border-radius: 20px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
   animation: slideFromTop 1.2s ease;
+  border: 3px solid #ff6b81;
 }
 
 .form h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #ff4500;
-  font-size: 1.8rem;
+  color: #ff1493;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(255, 20, 147, 0.5);
 }
 
 .form input,
@@ -86,39 +88,41 @@ body {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid #ff6b81;
+  border-radius: 12px;
   font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .form input:focus,
 .form textarea:focus {
   outline: none;
-  border-color: #ff4500;
-  box-shadow: 0px 0px 8px rgba(255, 69, 0, 0.5);
+  border-color: #ff1493;
+  box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.7);
 }
 
 .form button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #ff7f50, #ff4500);
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
   color: white;
   border: none;
   border-radius: 25px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .form button:hover {
-  background: linear-gradient(135deg, #ff4500, #ff7f50);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  transform: scale(1.08);
 }
 
 .backButton {
-  background-color: #ff7f50;
+  background-color: #ff69b4;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -129,6 +133,6 @@ body {
 }
 
 .backButton:hover {
-  background-color: #ff4500;
+  background-color: #ff1493;
   transform: scale(1.1);
 }
