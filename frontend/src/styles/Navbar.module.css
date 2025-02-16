@@ -1,21 +1,23 @@
 .navbar {
-    background-image: linear-gradient(to right, #401a29, #8a3758);
-    height: 100px;
+    background: linear-gradient(to right, #401a29, #8a3758);
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: fixed;  /* Keep it always visible */
+    justify-content: space-between;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;  /* Ensure it's above all elements */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for better visibility */
+    z-index: 9999;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Logo */
 .logo_text {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 900;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     color: whitesmoke;
     transition: color 0.3s ease;
 }
@@ -24,6 +26,7 @@
     color: #f9649d;
 }
 
+/* Navigation Links */
 .menulink span {
     margin-right: 10%;
     font-size: 17px;
@@ -40,41 +43,50 @@
 /* Buttons */
 .notified button, .logoutButton {
     cursor: pointer;
-    padding: 15px;
-    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .notified button {
-    background: pink;
+    background: #ffb6c1;
+    color: #401a29;
 }
 
-.notified button:hover, .logoutButton:hover {
+.notified button:hover {
     background: #8a3758;
+    color: white;
     transform: translateY(-2px);
 }
 
 .logoutButton {
-    background: #ff6347;
+    background: #ff4d4d;
+    color: white;
+}
+
+.logoutButton:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
 }
 
 /* User Box */
 .userBox {
-    background: pink;
-    color: white;
+    background: #ffb6c1;
+    color: #401a29;
     font-weight: bold;
     border: 2px solid #8a3758;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 10px 15px;
     margin: 0 10px;
     text-align: center;
-    display: inline-block;
     font-size: 14px;
+    display: inline-block;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .userBox:hover {
