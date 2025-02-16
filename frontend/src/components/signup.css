@@ -118,3 +118,12 @@ body {
     background-color: #357ae8;
     transform: translateY(-2px);
 }
+
+/* Toast Container */
+.toast-container {
+    z-index: 9999;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    max-width: 300px;
+}
