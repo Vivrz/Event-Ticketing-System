@@ -1,52 +1,59 @@
-.container{
+/* Navbar.css */
+.navbar-container {
     background-image: linear-gradient(to right, #401a29 ,#8a3758 );
     height: 100px;
     width: 100%;
     display: flex;
-    
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1000;
 }
-.logo_text{
-    font-size : 40px;
+
+.logo_text {
+    font-size: 40px;
     margin: 0px 30px;
-    font-weight : 900;
-    font-family : "Roboto";
-    color : whitesmoke;
+    font-weight: 900;
+    font-family: "Roboto";
+    color: whitesmoke;
 }
-.logo{
-    flex : 1;
+
+.logo {
+    flex: 1;
 }
-.menulink{
+
+.menulink {
     flex: 2;
 }
-.menulink span{
+
+.menulink span {
     margin-right: 10%;
     font-size: 17px;
-    cursor : pointer;
+    cursor: pointer;
     transition: all 0.1s ease;
-
-    color : whitesmoke
+    color: whitesmoke;
 }
 
-.notified button{
+.notified button {
     cursor: pointer;
     background-color: pink;
-    padding : 15px;
-    color : white;
-    font-weight  : 900;
-    border :none;
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    border: none;
     margin: 0px 30px;
     border-radius: 5px;
 }
-.notified button:hover{
+
+.notified button:hover {
     background-color: #8a3758;
     color: white;
     transform: translateY(-2px);
 }
+
 .logoutButton {
     cursor: pointer;
-    background-color: #ff6347; /* Tomato color */
+    background-color: #ff6347;
     padding: 15px;
     color: white;
     font-weight: 900;
@@ -55,12 +62,12 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
+
 .logoutButton:hover {
     background-color: #8a3758;
     color: white;
     transform: translateY(-2px);
-  }
-
+}
 
 .userBox {
     background-color: pink;
@@ -75,11 +82,10 @@
     font-size: 14px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .userBox:hover {
+}
+
+.userBox:hover {
     background-color: #8a3758;
     color: white;
     transform: translateY(-2px);
-  }
-  
+}
