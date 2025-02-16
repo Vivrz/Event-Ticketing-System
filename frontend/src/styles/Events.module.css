@@ -2,26 +2,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: url('https://img.freepik.com/free-vector/gradient-purple-color-background-modern-wave-abstract-designs_343694-2361.jpg?t=st=1739689334~exp=1739692934~hmac=2b805400ac00341392ebf129561600a0d105c328965cf1bff1c37ad9a93d7536&w=1380') no-repeat center center/cover;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #333;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .eventlist {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 40px 20px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
   animation: slideFromBottom 1.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
 }
 
 .h1tag {
   text-align: center;
   margin-bottom: 30px;
-  color: #6a1b9a; /* A more professional purple */
-  font-size: 2.8rem;
+  color: #6a1b9a;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   animation: fadeZoomIn 1.2s ease;
 }
@@ -30,20 +36,26 @@ body {
   display: block;
   margin: 30px auto;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #6a1b9a, #9c27b0); /* Gradient with professional purple tones */
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
   color: white;
   border: none;
   border-radius: 30px;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  animation: pulse 1.5s infinite;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .addButton:hover {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
+}
+
+.addButton:active {
+  transform: translateY(0);
 }
 
 .body {
@@ -51,6 +63,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
   padding: 20px;
+  margin-top: 20px;
 }
 
 .events_item {
@@ -59,8 +72,10 @@ body {
   overflow: hidden;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: zoomIn 0.8s ease;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .events_item:hover {
@@ -68,22 +83,42 @@ body {
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+.events_item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #f0f0f0;
+}
+
 .form {
-  max-width: 500px;
+  max-width: 600px;
+  width: 90%;
   margin: 40px auto;
-  padding: 40px;
+  padding: clamp(20px, 5vw, 40px);
   background: linear-gradient(135deg, #ffffff, #f8f8f8);
   border-radius: 20px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
   animation: slideFromTop 1.2s ease;
   border: 2px solid #e0e0e0;
+  position: relative;
+}
+
+.form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6a1b9a, #9c27b0);
+  border-radius: 20px 20px 0 0;
 }
 
 .form h2 {
   text-align: center;
   margin-bottom: 25px;
   color: #6a1b9a;
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
   font-weight: 700;
   text-shadow: 2px 2px 5px rgba(106, 27, 154, 0.1);
 }
@@ -95,9 +130,10 @@ body {
   margin-bottom: 20px;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
-  font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: clamp(14px, 1.5vw, 16px);
+  transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.95);
+  box-sizing: border-box;
 }
 
 .form input:focus,
@@ -105,6 +141,7 @@ body {
   outline: none;
   border-color: #9c27b0;
   box-shadow: 0px 0px 10px rgba(156, 39, 176, 0.2);
+  transform: translateY(-2px);
 }
 
 .form button {
@@ -114,16 +151,22 @@ body {
   color: white;
   border: none;
   border-radius: 30px;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .form button:hover {
   background: linear-gradient(135deg, #9c27b0, #6a1b9a);
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
+}
+
+.form button:active {
+  transform: translateY(0);
 }
 
 .backButton {
@@ -131,20 +174,40 @@ body {
   color: white;
   border: none;
   padding: 12px 24px;
-  margin: 20px 0;
+  margin: 20px;
   cursor: pointer;
   border-radius: 30px;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .backButton:hover {
   background-color: #6a1b9a;
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
 }
 
-/* Animations */
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .eventlist {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .body {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .form {
+    padding: 20px;
+    margin: 20px auto;
+  }
+}
+
+/* Enhanced animations */
 @keyframes slideFromBottom {
   0% {
     opacity: 0;
@@ -157,29 +220,6 @@ body {
 }
 
 @keyframes fadeZoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes zoomIn {
   0% {
     opacity: 0;
     transform: scale(0.9);
