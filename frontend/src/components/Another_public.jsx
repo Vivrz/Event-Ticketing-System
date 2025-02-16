@@ -46,7 +46,7 @@ const AnotherPublic_events = () => {
   };
 
   return (
-    <div className={styles.Another_container}>
+    <div className={styles.Another}>
       <h1 className="h1Tag">Available Events</h1>
 
       {/* Events List */}
