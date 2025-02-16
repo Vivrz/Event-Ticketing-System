@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <div className={styles.container}>
+        <div className={styles.navbar-container}>
           <div className={styles.logo}>
             <span className={styles.logo_text}>MVX</span>
           </div>

@@ -50,7 +50,7 @@ const Events = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.eventlist-container}>
       <h1 className="h1Tag">Events</h1>
 
      

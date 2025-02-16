@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.container{
+.feature-container{
     height: 90vh;
     background-image: linear-gradient(to right, #401a29 , #8a3758);
     color : whitesmoke;
