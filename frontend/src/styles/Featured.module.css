@@ -1,37 +1,43 @@
-.wrapper{
+.wrapper {
     position: relative;
-}
-
-.feature{
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .featureContainer {
     height: 90vh;
-    background-image: linear-gradient(to right, #401a29 , #8a3758);
-    color : whitesmoke;
+    background-image: linear-gradient(to right, #401a29, #8a3758);
+    color: whitesmoke;
     display: flex;
-}
-.text{
+  }
+  
+  .featureText {
     display: flex;
     flex-direction: column;
     margin: 5%;
     width: 40%;
-}
-.text span:first-child{
+  }
+  
+  .featureText span:first-child {
     font-size: 35px;
-}
-.text h1{
+  }
+  
+  .featureText h1 {
     font-size: 35px;
-}
-.image{
+  }
+  
+  .featureImage {
     display: flex;
     justify-content: flex-end;
-}
-.image video{
-    width: 80%;
-    height:95%;
+    width: 60%;
+  }
+  
+  .featureImage video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-}
-
-
-.search{
+  }
+  
+  .searchContainer {
     width: 80%;
     background-color: #141316;
     color: whitesmoke;
@@ -44,31 +50,38 @@
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
-}
-
-.search input{
-    border : none;
-    outline: none;
-    color: whitesmoke;
-    background-color: transparent;
-    font-size: 15px;
-    font-weight: 900;
-    color: #f42155;
-}
-
-.search select{
-    border : none;
+  }
+  
+  .searchItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .searchItem input,
+  .searchItem select {
+    border: none;
     outline: none;
     background-color: transparent;
     color: #f9649d;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  
+  .searchItem input {
+    font-size: 15px;
+    font-weight: 900;
+  }
+  
+  .searchItem select {
     width: 150px;
     padding: 10px;
-    font-family:'Roboto' ;
-}
-
-.events_button{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .searchButton {
     background-color: #f9649d;
     padding: 10px;
     height: 50px;
@@ -76,7 +89,8 @@
     color: #fff;
     font-weight: 900;
     font-size: 18px;
-    border : none;
+    border: none;
     border-radius: 40px;
     cursor: pointer;
-}   
+  }
+  

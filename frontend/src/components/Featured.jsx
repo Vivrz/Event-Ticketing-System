@@ -10,8 +10,8 @@ const Featured = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.feature_container}>
-        <div className={styles.feature_text}>
+      <div className={styles.featureContainer}>
+        <div className={styles.featureText}>
           <span>Experience more</span>
           <h1>The cheapest tickets on the internet, period</h1>
           <span>
@@ -22,23 +22,23 @@ const Featured = () => {
           </span>
         </div>
 
-        <div className={styles.feature_image}>
+        <div className={styles.featureImage}>
           <video src="/Rockband.mp4" autoPlay muted loop></video>
         </div>
       </div>
       {/* Search box */}
-      <div className={styles.search_container}>
-        <div className={styles.search_item}>
+      <div className={styles.searchContainer}>
+        <div className={styles.searchItem}>
           <h3>Location</h3>
           <input type="text" placeholder="Search location" />
         </div>
 
-        <div className={styles.search_item}>
+        <div className={styles.searchItem}>
           <h3>Date</h3>
           <input type="date" />
         </div>
 
-        <div className={styles.search_item}>
+        <div className={styles.searchItem}>
           <h3>Price</h3>
           <select>
             <option value="" disabled>
@@ -49,14 +49,14 @@ const Featured = () => {
             <option value="1000+">$1000+</option>
           </select>
         </div>
-        <div className={styles.search_item}>
+        <div className={styles.searchItem}>
           <h3>Event Type</h3>
           <select>
             <option value="online">Online</option>
             <option value="physical">Physical</option>
             <option value="blended">Blended</option>
           </select>
-          <button className={styles.search_button} onClick={handleEvent}>
+          <button className={styles.searchButton} onClick={handleEvent}>
             Find Events
           </button>
         </div>
