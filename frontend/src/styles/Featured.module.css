@@ -1,94 +1,82 @@
-/* Wrapper */
-.wrapper {
+.wrapper{
     position: relative;
 }
 
-/* Feature Section */
-.feature {
+.feature{
     height: 90vh;
-    background: linear-gradient(to right, #401a29, #8a3758);
-    color: whitesmoke;
+    background-image: linear-gradient(to right, #401a29 , #8a3758);
+    color : whitesmoke;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5%;
-    transition: background 0.3s ease;
 }
-
-.text {
+.text{
     display: flex;
     flex-direction: column;
+    margin: 5%;
     width: 40%;
-    animation: fadeIn 1s ease-in-out;
 }
-
-.text span:first-child, .text h1 {
+.text span:first-child{
     font-size: 35px;
 }
-
-.image {
+.text h1{
+    font-size: 35px;
+}
+.image{
     display: flex;
     justify-content: flex-end;
 }
-
-.image video {
+.image video{
     width: 80%;
-    height: 95%;
+    height:95%;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Search Bar */
-.search {
+
+.search{
     width: 80%;
-    background: rgba(20, 19, 22, 0.9);
+    background-color: #141316;
     color: whitesmoke;
-    padding: 15px;
+    padding: 10px;
     position: absolute;
-    bottom: 10%;
+    bottom: 15%;
     right: 10%;
-    height: auto;
+    height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.search input, .search select {
-    border: none;
+.search input{
+    border : none;
     outline: none;
+    color: whitesmoke;
     background-color: transparent;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.search input {
+    font-size: 15px;
+    font-weight: 900;
     color: #f42155;
 }
 
-.search select {
+.search select{
+    border : none;
+    outline: none;
+    background-color: transparent;
     color: #f9649d;
+    font-size: 20px;
+    font-weight: 500;
+    width: 150px;
     padding: 10px;
-    font-family: 'Roboto';
+    font-family:'Roboto' ;
 }
 
-.events_button {
-    background: #f9649d;
-    padding: 12px;
+.events_button{
+    background-color: #f9649d;
+    padding: 10px;
     height: 50px;
     width: 200px;
     color: #fff;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 18px;
-    border: none;
+    border : none;
     border-radius: 40px;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.events_button:hover {
-    background: #d85182;
-    transform: scale(1.05);
-}
+}   
