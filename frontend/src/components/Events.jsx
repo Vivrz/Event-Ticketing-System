@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/Events.module.css";
-import { base_url } from '../../Hunter';
+import { base_url } from "../../Hunter";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -14,54 +14,58 @@ const Events = () => {
     description: "",
   });
 
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${base_url}/events`)
-      .then((res) => setEvents(res.data))
-      .catch((err) => console.error("Error fetching events:", err)); 
+    const fetchEvents = async () => {
+      try {
+        const res = await axios.get(`${base_url}/events`);
+        setEvents(res.data);
+      } catch (err) {
+        console.error("Error fetching events:", err);
+      }
+    };
+    fetchEvents();
   }, []);
 
-  const handleAddEvent = () => {
-    axios.post(`${base_url}/add-event`, newEvent)
-      .then((res) => {
-        setEvents([...events, res.data]);
-        setShowAddEventForm(false);
-      })
-      .catch((err) => console.error("Error adding event:", err));
+  const handleAddEvent = async () => {
+    if (!newEvent.name || !newEvent.date || !newEvent.price || !newEvent.description) {
+      alert("All fields are required!");
+      return;
+    }
+
+    try {
+      const res = await axios.post(`${base_url}/add-event`, newEvent);
+      setEvents((prevEvents) => [...prevEvents, res.data]);
+      setNewEvent({ name: "", date: "", price: "", description: "" });
+      setShowAddEventForm(false);
+    } catch (err) {
+      console.error("Error adding event:", err);
+    }
   };
 
- 
-  const handleDeleteEvent = (eventId) => {
-    const confirmed = window.confirm("Are you sure you want to delete this event?");
-    if (!confirmed) return;
+  const handleDeleteEvent = async (eventId) => {
+    if (!window.confirm("Are you sure you want to delete this event?")) return;
 
-    axios.delete(`${base_url}/delete-event/${eventId}`)
-      .then(() => {
-        console.log("Event deleted successfully"); 
-        setEvents(events.filter((event) => event._id !== eventId));
-        alert("Event deleted successfully!");
-      })
-      .catch((err) => {
-        console.error("Error in delete request:", err);
-        alert("Error deleting event");
-      });
+    try {
+      await axios.delete(`${base_url}/delete-event/${eventId}`);
+      setEvents((prevEvents) => prevEvents.filter((event) => event._id !== eventId));
+      alert("Event deleted successfully!");
+    } catch (err) {
+      console.error("Error deleting event:", err);
+      alert("Error deleting event");
+    }
   };
 
   return (
     <div className={styles.eventlist}>
-      <h1 className="h1Tag">Events</h1>
+      <h1 className={styles.h1Tag}>Events</h1>
 
-     
       <button className={styles.backButton} onClick={() => navigate("/HomePage")}>
         Back Home
       </button>
 
-      <button
-        className={styles.addButton}
-        onClick={() => setShowAddEventForm(true)}
-      >
+      <button className={styles.addButton} onClick={() => setShowAddEventForm(true)}>
         Add Event
       </button>
 
@@ -88,14 +92,11 @@ const Events = () => {
           <textarea
             placeholder="Description"
             value={newEvent.description}
-            onChange={(e) =>
-              setNewEvent({ ...newEvent, description: e.target.value })
-            }
-          ></textarea>
+            onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+          />
           <button onClick={handleAddEvent}>Submit</button>
         </div>
       )}
-
 
       <div className={styles.body}>
         {events.map((event) => (
@@ -104,10 +105,7 @@ const Events = () => {
             <p>{event.date}</p>
             <p>{event.price}</p>
             <p>{event.description}</p>
-            <button
-              className={styles.deleteButton}
-              onClick={() => handleDeleteEvent(event._id)}
-            >
+            <button className={styles.deleteButton} onClick={() => handleDeleteEvent(event._id)}>
               Delete Event
             </button>
           </div>
