@@ -58,19 +58,19 @@ const Events = () => {
   };
 
   return (
-    <div className={styles.eventlist}>
-      <h1 className={styles.h1Tag}>Events</h1>
+    <div className={styles.event_list}>
+      <h1 className={styles.event_title}>Events</h1>
 
-      <button className={styles.backButton} onClick={() => navigate("/HomePage")}>
+      <button className={styles.back_button} onClick={() => navigate("/HomePage")}>
         Back Home
       </button>
 
-      <button className={styles.addButton} onClick={() => setShowAddEventForm(true)}>
+      <button className={styles.add_button} onClick={() => setShowAddEventForm(true)}>
         Add Event
       </button>
 
       {showAddEventForm && (
-        <div className={styles.form}>
+        <div className={styles.event_form}>
           <h2>Add Event</h2>
           <input
             type="text"
@@ -98,14 +98,14 @@ const Events = () => {
         </div>
       )}
 
-      <div className={styles.body}>
+      <div className={styles.event_body}>
         {events.map((event) => (
-          <div key={event._id} className={styles.events_item}>
-            <h3>{event.name}</h3>
-            <p>{event.date}</p>
-            <p>{event.price}</p>
-            <p>{event.description}</p>
-            <button className={styles.deleteButton} onClick={() => handleDeleteEvent(event._id)}>
+          <div key={event._id} className={styles.event_item}>
+            <h3 className={styles.event_item_title}>{event.name}</h3>
+            <p className={styles.event_item_date}>{event.date}</p>
+            <p className={styles.event_item_price}>{event.price}</p>
+            <p className={styles.event_item_description}>{event.description}</p>
+            <button className={styles.delete_button} onClick={() => handleDeleteEvent(event._id)}>
               Delete Event
             </button>
           </div>

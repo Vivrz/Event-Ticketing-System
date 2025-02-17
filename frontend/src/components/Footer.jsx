@@ -1,12 +1,11 @@
-
 import React from "react";
-import styles from '../styles/Footer.module.css'
+import styles from '../styles/Footer.module.css';
 import { FaFacebook, FaInstagramSquare, FaPinterest, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className={styles.footed}>
+      <div className={styles.footer_container}>
         <div className={styles.footer_about}>
           <h2>MVX</h2>
           <span>
@@ -22,44 +21,21 @@ const Footer = () => {
             <FaPinterest className={styles.icon} />
           </div>
         </div>
-        <div className={styles.footer_item}>
-          <h3>For designers</h3>
-          <ul>
-            <li>Go Pro!</li>
-            <li>Explore design work</li>
-            <li>Design blog</li>
-            <li>Overtime podcast</li>
-            <li>Playoffs</li>
-            <li>Refer a friend</li>
-            <li>Code of conduct</li>
-          </ul>
-        </div>
-
-        <div className={styles.footer_item}>
-          <h3>Company</h3>
-          <ul>
-            <li>Go Pro!</li>
-            <li>Explore design work</li>
-            <li>Design blog</li>
-            <li>Overtime podcast</li>
-            <li>Playoffs</li>
-            <li>Refer a friend</li>
-            <li>Code of conduct</li>
-          </ul>
-        </div>
-
-        <div className={styles.footer_item}>
-          <h3>Directories</h3>
-          <ul>
-            <li>Go Pro!</li>
-            <li>Explore design work</li>
-            <li>Design blog</li>
-            <li>Overtime podcast</li>
-            <li>Playoffs</li>
-            <li>Refer a friend</li>
-            <li>Code of conduct</li>
-          </ul>
-        </div>
+        
+        {['For designers', 'Company', 'Directories'].map((section) => (
+          <div key={section} className={styles.footer_item}>
+            <h3>{section}</h3>
+            <ul className={styles.footer_ul}>
+              <li>Go Pro!</li>
+              <li>Explore design work</li>
+              <li>Design blog</li>
+              <li>Overtime podcast</li>
+              <li>Playoffs</li>
+              <li>Refer a friend</li>
+              <li>Code of conduct</li>
+            </ul>
+          </div>
+        ))}
       </div>
       <hr />
       <span>&copy; MVX All rights reserved.</span>
