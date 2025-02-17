@@ -1,3 +1,4 @@
+/* Navbar */
 .navbar {
     background: linear-gradient(to right, #401a29, #8a3758);
     height: 80px;
@@ -9,17 +10,18 @@
     top: 0;
     left: 0;
     z-index: 9999;
-    padding: 0 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 0 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Logo */
 .logo_text {
-    font-size: 35px;
-    font-weight: 900;
+    font-size: 32px;
+    font-weight: 800;
     font-family: "Roboto", sans-serif;
     color: whitesmoke;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .logo_text:hover {
@@ -27,12 +29,17 @@
 }
 
 /* Navigation Links */
+.menulink {
+    display: flex;
+    gap: 30px;
+}
+
 .menulink span {
-    margin-right: 10%;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
     color: whitesmoke;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .menulink span:hover {
@@ -41,17 +48,25 @@
 }
 
 /* Buttons */
+.notified {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .notified button, .logoutButton {
     cursor: pointer;
-    padding: 12px 18px;
+    padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     display: inline-block;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Notification Button */
 .notified button {
     background: #ffb6c1;
     color: #401a29;
@@ -63,6 +78,7 @@
     transform: translateY(-2px);
 }
 
+/* Logout Button */
 .logoutButton {
     background: #ff4d4d;
     color: white;
@@ -79,18 +95,47 @@
     color: #401a29;
     font-weight: bold;
     border: 2px solid #8a3758;
-    border-radius: 8px;
-    padding: 10px 15px;
-    margin: 0 10px;
+    border-radius: 10px;
+    padding: 10px 20px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     display: inline-block;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
 .userBox:hover {
     background: #8a3758;
     color: white;
     transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .menulink {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .notified {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .logo_text {
+        font-size: 28px;
+    }
+
+    .menulink span {
+        font-size: 16px;
+    }
 }
