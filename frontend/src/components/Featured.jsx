@@ -10,7 +10,7 @@ const Featured = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.featureContainer}>
+      <div className={styles.Feature}>
         <div className={styles.featureText}>
           <span>Experience more</span>
           <h1>The cheapest tickets on the internet, period</h1>

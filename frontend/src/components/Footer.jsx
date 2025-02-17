@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagramSquare, FaPinterest, FaTwitter } from 'react-ico
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className={styles.footer_container}>
+      <div className={styles.Footer}>
         <div className={styles.footer_about}>
           <h2>MVX</h2>
           <span>
