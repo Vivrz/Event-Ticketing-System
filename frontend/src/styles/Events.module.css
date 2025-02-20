@@ -1,6 +1,6 @@
 .event_list {
   padding: 20px;
-  background-color: #f7f7f7;
+  background: linear-gradient(135deg, #f7f7f7, #eaeaea);
 }
 
 .event_title {
@@ -9,11 +9,12 @@
   color: #6a1b9a;
   text-align: center;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .back_button,
 .add_button {
-  background-color: #9c27b0;
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -22,6 +23,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-right: 15px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .back_button {
@@ -34,7 +36,8 @@
 
 .back_button:hover,
 .add_button:hover {
-  background-color: #6a1b9a;
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+  transform: translateY(-2px);
 }
 
 .event_form {
@@ -50,6 +53,7 @@
   font-weight: 700;
   color: #6a1b9a;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .event_form input,
@@ -60,10 +64,17 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event_form input:focus,
+.event_form textarea:focus {
+  border-color: #9c27b0;
+  box-shadow: 0 0 8px rgba(156, 39, 176, 0.2);
 }
 
 .event_form button {
-  background-color: #9c27b0;
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -71,10 +82,12 @@
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .event_form button:hover {
-  background-color: #6a1b9a;
+  background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+  transform: translateY(-2px);
 }
 
 .event_body {
@@ -211,9 +224,10 @@
   font-size: 0.9rem;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .delete_button:hover {
   background-color: #b91f43;
+  transform: translateY(-2px);
 }
