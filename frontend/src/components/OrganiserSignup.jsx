@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { handlerror, handleSuccess } from "./util";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { base_url } from "../../Hunter";
 
-function Signup() {
+function OrganiserSignup() {
   const [signupInfo, setsignupInfo] = useState({
     name: "",
     email: "",
@@ -15,39 +15,59 @@ function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setsignupInfo({ ...signupInfo, [name]: value });
+    setsignupInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     const { name, email, password } = signupInfo;
+
     if (!name || !email || !password) {
-      return handlerror("Name, email, and password are required!");
+      return toast.error("Name, email, and password are required!");
     }
+
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!validateEmail(email)) {
+      return toast.error("Please enter a valid email address!");
+    }
+
+    if (password.length < 6) {
+      return toast.error("Password must be at least 6 characters long!");
+    }
+
     try {
-      const url = `${base_url}/Signup`;
-      const response = await fetch(url, {
-        method: "POST",
+      const url = `${base_url}/Organiser-Signup`;
+      const response = await axios.post(url, signupInfo, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signupInfo),
       });
-      const result = await response.json();
-      const { success, message } = result;
+
+      const { success, message } = response.data;
       if (success) {
-        handleSuccess(message);
-        navigate("/Login");
+        toast.success(message);
+        setTimeout(() => {
+          navigate("/OrganiserLogin");
+        }, 1000);
+      } else {
+        toast.error(message);
       }
     } catch (err) {
-      handlerror("Signup failed. Try again!");
+      if (err.response) {
+        toast.error(err.response.data.message || "An error occurred on the server");
+      } else {
+        toast.error(err.message || "Network error occurred");
+      }
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 px-4">
       <div className="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-white text-center mb-6">Signup</h1>
+        <h1 className="text-3xl font-bold text-white text-center mb-6">Organiser Signup</h1>
 
         <form onSubmit={handleSignup} className="space-y-4">
           {/* Name Input */}
@@ -104,7 +124,7 @@ function Signup() {
           <p className="text-white">
             Already have an account?{" "}
             <button
-              onClick={() => navigate("/Login")}
+              onClick={() => navigate("/OrganiserLogin")}
               className="text-pink-300 hover:text-pink-500 font-semibold"
             >
               Login
@@ -119,4 +139,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default OrganiserSignup;

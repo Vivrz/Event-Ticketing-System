@@ -5,7 +5,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAvzqPoEyCACIYQzF67TsVuqzwekO5JR0Q",
   authDomain: "event-ticket-system.firebaseapp.com",
   projectId: "event-ticket-system",
-  storageBucket: "event-ticket-system.firebasestorage.app",
+  storageBucket: "event-ticket-system.appspot.com",
   messagingSenderId: "520091996718",
   appId: "1:520091996718:web:b0d7d19eabd10fb3cb45bf",
 };

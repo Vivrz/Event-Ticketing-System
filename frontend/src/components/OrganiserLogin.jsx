@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { handlerror, handleSuccess } from "./util";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { base_url } from "../../Hunter";
 
-function Signup() {
-  const [signupInfo, setsignupInfo] = useState({
-    name: "",
+function OrganiserLogin() {
+  const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
@@ -15,62 +14,57 @@ function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setsignupInfo({ ...signupInfo, [name]: value });
+    setLoginInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const { name, email, password } = signupInfo;
-    if (!name || !email || !password) {
-      return handlerror("Name, email, and password are required!");
+    const { email, password } = loginInfo;
+
+    if (!email || !password) {
+      return toast.error("Email and password are required!");
     }
+
     try {
-      const url = `${base_url}/Signup`;
-      const response = await fetch(url, {
-        method: "POST",
+      const url = `${base_url}/Organiser-Login`;
+      const response = await axios.post(url, loginInfo, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signupInfo),
       });
-      const result = await response.json();
-      const { success, message } = result;
+
+      const { success, message } = response.data;
       if (success) {
-        handleSuccess(message);
-        navigate("/Login");
+        toast.success(message);
+        navigate("/Events"); 
+      } else {
+        toast.error(message);
       }
     } catch (err) {
-      handlerror("Signup failed. Try again!");
+      if (err.response) {
+        toast.error(err.response.data.message || "An error occurred on the server");
+      } else {
+        toast.error(err.message || "Network error occurred");
+      }
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 px-4">
       <div className="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-white text-center mb-6">Signup</h1>
+        <h1 className="text-3xl font-bold text-white text-center mb-6">Organiser Login</h1>
 
-        <form onSubmit={handleSignup} className="space-y-4">
-          {/* Name Input */}
-          <div>
-            <label className="block text-white text-sm font-semibold mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={signupInfo.name}
-              onChange={handleChange}
-              placeholder="Enter your name"
-              className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 outline-none focus:ring-2 focus:ring-pink-400"
-              autoFocus
-            />
-          </div>
-
+        <form onSubmit={handleLogin} className="space-y-4">
           {/* Email Input */}
           <div>
             <label className="block text-white text-sm font-semibold mb-2">Email</label>
             <input
               type="email"
               name="email"
-              value={signupInfo.email}
+              value={loginInfo.email}
               onChange={handleChange}
               placeholder="Enter your email"
               className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 outline-none focus:ring-2 focus:ring-pink-400"
@@ -83,31 +77,31 @@ function Signup() {
             <input
               type="password"
               name="password"
-              value={signupInfo.password}
+              value={loginInfo.password}
               onChange={handleChange}
               placeholder="Enter your password"
               className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-300 outline-none focus:ring-2 focus:ring-pink-400"
             />
           </div>
 
-          {/* Signup Button */}
+          {/* Login Button */}
           <button
             type="submit"
             className="w-full p-3 bg-pink-600 hover:bg-pink-500 text-white rounded-lg transition duration-300 font-semibold shadow-md"
           >
-            Signup
+            Login
           </button>
         </form>
 
-        {/* Login Link */}
+        {/* Signup Link */}
         <div className="mt-6 text-center">
           <p className="text-white">
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <button
-              onClick={() => navigate("/Login")}
+              onClick={() => navigate("/OrganiserSignup")}
               className="text-pink-300 hover:text-pink-500 font-semibold"
             >
-              Login
+              Signup
             </button>
           </p>
         </div>
@@ -119,4 +113,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default OrganiserLogin;
