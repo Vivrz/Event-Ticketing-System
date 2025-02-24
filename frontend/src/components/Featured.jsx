@@ -25,7 +25,7 @@ const Featured = ({ onNavigate }) => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-2xl">
             <video 
-              src="https://rr9---sn-ci5gup-qxar.googlevideo.com/videoplayback?expire=1740408029&ei=fTC8Z5qhBYCw6dsPvoSz2AQ&ip=172.71.99.109&id=o-ACHeR-L5mi2HK9oNz0z8bmidKDzq4B2HiIs2dzIQTfUA&itag=137&aitags=134%2C136%2C137%2C160%2C243&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AUWDL3zFmLGkDok1oxGICUHe5dCNrBBDsewbnmxVXBXqwV-gqKDYMeIS9JJ7pQdfGIT1oW6Zs9I5yXcz&spc=RjZbSSGvWMSc5TFxlEITVKlPO3WaKz1qUVSsYM-Y-q-9rySVSfJuEMBh3FLrGbMF36A&vprv=1&svpuc=1&mime=video%2Fmp4&ns=0B3adWyYD2DJiMjZBhxpR1kQ&rqh=1&gir=yes&clen=33510810&dur=75.000&lmt=1649658392200780&keepalive=yes&lmw=1&fexp=24350590,24350737,24350827,24350961,24351130,24351173,51326932&c=TVHTML5&sefc=1&txp=5432434&n=IRHcxaXCmypZPA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRgIhALOu3Il2240Fhj3lIUzLf45QBKHD3FWk4wX06mIFqKmfAiEA0D9BNRsQenHKTM4StbpU6ioBZ1fO93CKCv9GwluOpeI%3D&title=Diljit+Dosanjh%3A+Born+To+Shine+-+World+Tour+2022+%7C+A+Glimpse&redirect_counter=1&rm=sn-5hnesz7z&rrc=104&req_id=97a10f551058a3ee&cms_redirect=yes&cmsv=e&ipbypass=yes&met=1740386439,&mh=yh&mip=2401:4900:883f:79fd:94db:9934:f8c1:ade1&mm=31&mn=sn-ci5gup-qxar&ms=au&mt=1740386224&mv=m&mvi=9&pl=50&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=AGluJ3MwRAIfKxOMLbYd1OUD7XP6dX_k7vYbhUjqY2WP10IhQFV4SAIhAIi_VQaW8msTfPD2b-zwdBXVqMJSVGoKg3MAjPw_upUL" 
+              src="/videoplayback.mp4" 
               autoPlay 
               muted 
               loop 
