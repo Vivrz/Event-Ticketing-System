@@ -1,8 +1,10 @@
+
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { base_url } from "../../Hunter";
+import "react-toastify/dist/ReactToastify.css"; // Ensure you import the CSS file
 
 function OrganiserLogin() {
   const [loginInfo, setLoginInfo] = useState({
@@ -25,7 +27,14 @@ function OrganiserLogin() {
     const { email, password } = loginInfo;
 
     if (!email || !password) {
-      return toast.error("Email and password are required!");
+      return toast.error("Email and password are required!", {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "dark",
+        hideProgressBar: true,
+        closeButton: false,
+        className: "custom-toast-error",
+      });
     }
 
     try {
@@ -38,16 +47,44 @@ function OrganiserLogin() {
 
       const { success, message } = response.data;
       if (success) {
-        toast.success(message);
-        navigate("/Events"); 
+        toast.success(message, {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "colored",
+          hideProgressBar: true,
+          closeButton: false,
+          className: "custom-toast-success",
+        });
+        navigate("/Events");
       } else {
-        toast.error(message);
+        toast.error(message, {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "dark",
+          hideProgressBar: true,
+          closeButton: false,
+          className: "custom-toast-error",
+        });
       }
     } catch (err) {
       if (err.response) {
-        toast.error(err.response.data.message || "An error occurred on the server");
+        toast.error(err.response.data.message || "An error occurred on the server", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "dark",
+          hideProgressBar: true,
+          closeButton: false,
+          className: "custom-toast-error",
+        });
       } else {
-        toast.error(err.message || "Network error occurred");
+        toast.error(err.message || "Network error occurred", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "dark",
+          hideProgressBar: true,
+          closeButton: false,
+          className: "custom-toast-error",
+        });
       }
     }
   };
@@ -107,7 +144,12 @@ function OrganiserLogin() {
         </div>
 
         {/* Toast Container */}
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          closeButton={false}
+        />
       </div>
     </div>
   );

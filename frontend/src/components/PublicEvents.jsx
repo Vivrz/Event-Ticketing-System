@@ -11,12 +11,12 @@ const PublicEvents = () => {
     userEmail: "",
   });
 
-  // Fetch events
+ 
   useEffect(() => {
     axios.get(`${base_url}/events`).then((res) => setEvents(res.data));
   }, []);
 
-  // Handle Booking
+
   const handleBookTicket = () => {
     if (!bookingDetails.userName || !bookingDetails.userEmail) {
       alert("Please fill in all fields!");
@@ -43,7 +43,7 @@ const PublicEvents = () => {
     <div className="min-h-screen bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 p-6 flex flex-col items-center">
       <h1 className="text-4xl font-bold text-white text-center mb-6">🎭 Available Events</h1>
 
-      {/* Events List */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
         {events.length > 0 ? (
           events.map((event) => (
@@ -63,7 +63,7 @@ const PublicEvents = () => {
         )}
       </div>
 
-      {/* Booking Form */}
+   
       {selectedEvent && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4">
           <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
