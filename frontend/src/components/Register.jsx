@@ -90,7 +90,7 @@ const Register = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold shadow-lg"
+              className="w-full bottom-3 mb-8 text-white py-3 rounded-xl font-semibold shadow-lg"
             >
               Get notified
             </button>

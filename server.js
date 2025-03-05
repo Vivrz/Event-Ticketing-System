@@ -13,7 +13,7 @@ connectionWithDB().catch(err => {
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['https://event-ticket-system-tan.vercel.app'],
+    origin: ['https://event-ticket-system-tan.vercel.app','http://localhost:5173/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true 
@@ -48,7 +48,7 @@ app.post("/add-event", async (req, res) => {
   }
 });
 
-// Get All Events
+
 app.get("/events", async (req, res) => {
   try {
     const events = await Event.find();
@@ -58,7 +58,7 @@ app.get("/events", async (req, res) => {
   }
 });
 
-// Book Ticket
+
 app.post("/book-ticket", async (req, res) => {
   try {
     const ticket = new Ticket(req.body);

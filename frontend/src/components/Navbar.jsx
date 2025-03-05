@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Toast from './Toast';
-import Register from './Register'; // Import the Register component
+import Register from './Register'; 
 
 const Navbar = ({ onNavigate }) => {
   const navigate = useNavigate();
@@ -18,17 +18,17 @@ const Navbar = ({ onNavigate }) => {
     localStorage.removeItem('loggedInUser');
     setLoggedInUser('');
 
-    // Show toast and navigate after 1 second
+    
     setToastVisible(true);
     setTimeout(() => {
-      setToastVisible(false); // Hide toast after a delay
-      navigate('/Login');  // Navigate to Login page after 1 second
-    }, 2000);  // Show toast for 2 seconds
+      setToastVisible(false); 
+      navigate('/Login');  
+    }, 2000);  
   };
 
-  const handleOpenRegister = () => {
-    setRegister(true); // Set register state to true
-  };
+    const handleOpenRegister = () => {
+      setRegister(true);
+    };
 
   const handleOrganizerLogin = () => {
     navigate('/OrganiserLogin');
@@ -39,14 +39,14 @@ const Navbar = ({ onNavigate }) => {
       <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            
             <div className="flex-shrink-0">
               <span className="text-4xl font-bold text-white font-sans tracking-wider hover:text-pink-200 transition-colors duration-300">
                 MVX
               </span>
             </div>
 
-            {/* Navigation Links */}
+            
             <div className="hidden md:flex items-center space-x-8">
               <button
                 type="button"
@@ -71,7 +71,7 @@ const Navbar = ({ onNavigate }) => {
               </button>
             </div>
 
-            {/* Right Side Buttons */}
+           
             <div className="flex items-center space-x-4">
               <button
                 type="button"
@@ -100,10 +100,10 @@ const Navbar = ({ onNavigate }) => {
         </div>
       </nav>
 
-      {/* Toast Notification */}
+      
       {toastVisible && <Toast message="logged out successfully!" onClose={() => setToastVisible(false)} />}
       
-      {register && <Register />} {/* Render Register component when register state is true */}
+      {register && <Register />} 
     </div>
   );
 };
