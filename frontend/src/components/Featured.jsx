@@ -60,22 +60,6 @@ const Featured = ({ onNavigate }) => {
               <option value="1000+">$1000+</option>
             </select>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-gray-700 font-semibold">Event Type</h3>
-            <div className="space-y-4">
-              <select className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300">
-                <option value="online">Online</option>
-                <option value="physical">Physical</option>
-                <option value="blended">Blended</option>
-              </select>
-              <button
-                onClick={handleEvent}
-                className="w-full bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 text-white font-bold py-2 px-6 rounded-lg transform hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
-              >
-                Find Events
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
