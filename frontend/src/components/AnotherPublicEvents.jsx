@@ -30,7 +30,7 @@ const AnotherPublicEvents = ({ base_url }) => {
   };
 
   const handleBookTicket = () => {
-    // Here you would typically make an API call to save the booking
+
     setShowConfirmation(true);
   };
 
@@ -59,12 +59,12 @@ const AnotherPublicEvents = ({ base_url }) => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-800 to-purple-900 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+       
         <h1 className="text-4xl font-bold text-white text-center mb-12">
           Available Events
         </h1>
 
-        {/* Events Grid */}
+       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading ? (
             <div className="col-span-full text-center text-white text-xl">
@@ -100,7 +100,7 @@ const AnotherPublicEvents = ({ base_url }) => {
           )}
         </div>
 
-        {/* Booking Modal */}
+       
         {selectedEvent && !showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
@@ -149,7 +149,7 @@ const AnotherPublicEvents = ({ base_url }) => {
           </div>
         )}
 
-        {/* Confirmation Modal */}
+       
         {showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
