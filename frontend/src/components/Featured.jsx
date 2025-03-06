@@ -51,15 +51,6 @@ const Featured = ({ onNavigate }) => {
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300"
             />
           </div>
-          <div className="space-y-2">
-            <h3 className="text-gray-700 font-semibold">Price</h3>
-            <select className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300">
-              <option value="" disabled>All prices</option>
-              <option value="0-500">$0-$500</option>
-              <option value="500-1000">$500-$1000</option>
-              <option value="1000+">$1000+</option>
-            </select>
-          </div>
         </div>
       </div>
     </div>
