@@ -34,10 +34,6 @@ const Featured = ({ onNavigate }) => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-white rounded-xl shadow-2xl p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        </div>
-      </div>
     </div>
   );
 };
