@@ -1,15 +1,14 @@
-
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import HomePage from "./components/Home";
-import OrganiserSignup from "./components/Organiser-signup";
-import OrganiserLogin from "./components/Organiser-Login";
+import OrganiserSignup from "./components/OrganiserSignup";
+import OrganiserLogin from "./components/OrganiserLogin";
 import Events from "./components/Events";
-import Public_events from "./components/public_events";
-import AnotherPublic_events from "./components/Another_public";
-import { auth, provider, signInWithPopup } from "./components/firsbase"; 
+import PublicEvents from "./components/PublicEvents";
+import AnotherPublicEvents from "./components/AnotherPublicEvents";
+import { auth, provider, signInWithPopup } from "./components/firebase"; 
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,18 +29,20 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route path="/" element={user ? <Navigate to="/HomePage" /> : <Navigate to="/Login" />} />
-      <Route path="/Login" element={<Login onGoogleLogin={handleGoogleLogin} />} />
-      <Route path="/Signup" element={<Signup />} />
-      <Route path="/HomePage" element={<HomePage />} />
-      <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
-      <Route path="/OrganiserLogin" element={<OrganiserLogin />} />
-      <Route path="/Events" element={<Events/>}/>
-      <Route path="/Public_events" element={<Public_events />} />
-      <Route path="/AnotherPublic_events" element={<AnotherPublic_events />} />
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={user ? <Navigate to="/HomePage" /> : <Navigate to="/Login" />} />
+        <Route path="/Login" element={<Login onGoogleLogin={handleGoogleLogin} />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/OrganiserSignup" element={<OrganiserSignup />} />
+        <Route path="/OrganiserLogin" element={<OrganiserLogin />} />
+        <Route path="/Events" element={<Events />} />
+        <Route path="/PublicEvents" element={<PublicEvents />} />
+        <Route path="/AnotherPublicEvents" element={<AnotherPublicEvents />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 };
 

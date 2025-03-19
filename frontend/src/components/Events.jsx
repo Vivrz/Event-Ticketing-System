@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/Events.module.css";
 import { base_url } from "../../Hunter";
 
 const Events = () => {
@@ -58,54 +57,74 @@ const Events = () => {
   };
 
   return (
-    <div className={styles.event_list}>
-      <h1 className={styles.event_title}>Events</h1>
+    <div className="p-6 bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 min-h-screen text-white">
+      <h1 className="text-4xl font-extrabold text-center mb-8">Events</h1>
 
-      <button className={styles.back_button} onClick={() => navigate("/HomePage")}>
-        Back Home
-      </button>
+      <div className="flex justify-between mb-6">
+        <button
+          className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+          onClick={() => navigate("/HomePage")}
+        >
+          Back Home
+        </button>
 
-      <button className={styles.add_button} onClick={() => setShowAddEventForm(true)}>
-        Add Event
-      </button>
+        <button
+          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg shadow-md"
+          onClick={() => setShowAddEventForm(true)}
+        >
+          Add Event
+        </button>
+      </div>
 
       {showAddEventForm && (
-        <div className={styles.event_form}>
-          <h2>Add Event</h2>
+        <div className="max-w-xl mx-auto bg-white text-gray-900 p-6 rounded-lg shadow-xl mb-8">
+          <h2 className="text-2xl font-bold mb-4 text-center text-purple-600">Add Event</h2>
           <input
             type="text"
             placeholder="Event Name"
             value={newEvent.name}
             onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
           <input
             type="date"
             value={newEvent.date}
             onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
           <input
             type="text"
             placeholder="Price"
             value={newEvent.price}
             onChange={(e) => setNewEvent({ ...newEvent, price: e.target.value })}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
           <textarea
             placeholder="Description"
             value={newEvent.description}
             onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
-          <button onClick={handleAddEvent}>Submit</button>
+          <button
+            onClick={handleAddEvent}
+            className="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-all duration-300"
+          >
+            Submit
+          </button>
         </div>
       )}
 
-      <div className={styles.event_body}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event) => (
-          <div key={event._id} className={styles.event_item}>
-            <h3 className={styles.event_item_title}>{event.name}</h3>
-            <p className={styles.event_item_date}>{event.date}</p>
-            <p className={styles.event_item_price}>{event.price}</p>
-            <p className={styles.event_item_description}>{event.description}</p>
-            <button className={styles.delete_button} onClick={() => handleDeleteEvent(event._id)}>
+          <div key={event._id} className="bg-white text-gray-900 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 className="text-2xl font-semibold text-purple-600 mb-2">{event.name}</h3>
+            <p className="text-gray-700 mb-2">Date: {event.date}</p>
+            <p className="text-gray-700 mb-2">Price: ${event.price}</p>
+            <p className="text-gray-600 mb-4">{event.description}</p>
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg"
+              onClick={() => handleDeleteEvent(event._id)}
+            >
               Delete Event
             </button>
           </div>

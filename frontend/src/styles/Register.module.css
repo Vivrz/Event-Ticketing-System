@@ -1,5 +1,5 @@
 .register{
-    height: 100vh;
+    height: 105vh;
     width: 100%;
     background-color: rgba(0,0,0,0.4);
     position: absolute;
@@ -46,7 +46,7 @@
     font-weight: 900;
     font-size: 15px;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .image{

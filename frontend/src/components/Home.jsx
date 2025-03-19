@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Featured from "./Featured";
 import Footer from "./Footer";
-import Public_events from "./public_events";
+import PublicEvents from "./PublicEvents";
 
 const HomePage = () => {
   return (
@@ -11,8 +11,8 @@ const HomePage = () => {
       <Navbar />
       <Featured />
       <br />
-      <Public_events />
-      <Footer />
+      <PublicEvents />
+      <Footer />  
     </>
   );
 };
