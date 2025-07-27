@@ -57,7 +57,7 @@ const Navbar = ({ onNavigate }) => {
               </button>
               <button
                 type="button"
-                onClick={() => navigate('/about')}
+                onClick={() => window.location.href = 'https://github.com/Vivrz'}
                 className="text-white hover:text-pink-200 font-medium transition-all duration-300 hover:scale-105"
               >
                 About Us
