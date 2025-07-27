@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { base_url } from "../../Hunter";
-import Toast from './Toast'; // Import the Toast component
+import Toast from './Toast';
 
 function Login() {
   const [LoginInfo, setLoginInfo] = useState({

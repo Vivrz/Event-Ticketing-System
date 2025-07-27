@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-require('dotenv').config()
+require('dnvote').config()
 function connectionWithDB() {
     mongoose.connect(process.env.MONGO_URL).then(() => {
         console.log("connect to db");
