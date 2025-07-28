@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Toast from './Toast';
-import Register from './Register'; 
+import Register from './Register';
+import OrganiserValidation from "./OrganiserValidate.jsx"; 
 
 const Navbar = ({ onNavigate }) => {
   const navigate = useNavigate();
   const [register, setRegister] = useState(false);
+  const[organiser , SetOrganiser] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
 
@@ -30,9 +32,16 @@ const Navbar = ({ onNavigate }) => {
       setRegister(true);
     };
 
-  const handleOrganizerLogin = () => {
-    navigate('/OrganiserLogin');
-  };
+    const handleOpenOrganiser = () => {
+      if(loggedInUser.role != 'organiser'){
+        alert("Not an oraganiser");
+        SetOrganiser(true);
+        console.log(loggedInUser.role);
+      }
+      else{
+        navigate('/OrganiserLogin');
+      }
+    };
 
   return (
     <div className="relative">
@@ -41,7 +50,7 @@ const Navbar = ({ onNavigate }) => {
           <div className="flex items-center justify-between h-20">
             
             <div className="flex-shrink-0">
-              <span className="text-4xl font-bold text-white font-sans tracking-wider hover:text-pink-200 transition-colors duration-300">
+              <span className="text-4xl font-bold text-white hover:text-pink-200  duration-200">
                 MVX
               </span>
             </div>
@@ -57,14 +66,14 @@ const Navbar = ({ onNavigate }) => {
               </button>
               <button
                 type="button"
-                onClick={() => window.location.href = 'https://github.com/Vivrz'}
+                onClick={() => window.open('https://github.com/Vivrz' , '_blank')}
                 className="text-white hover:text-pink-200 font-medium transition-all duration-300 hover:scale-105"
               >
                 About Us
               </button>
               <button
                 type="button"
-                onClick={handleOrganizerLogin}
+                onClick={handleOpenOrganiser}
                 className="text-white hover:text-pink-200 font-medium transition-all duration-300 hover:scale-105"
               >
                 Event Organisers
@@ -76,20 +85,20 @@ const Navbar = ({ onNavigate }) => {
               <button
                 type="button"
                 onClick={handleOpenRegister}
-                className="bg-pink-400 hover:bg-pink-500 text-purple-900 font-bold py-2 px-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 duration-300 shadow-md hover:shadow-xl"
               >
                 Get Notified
               </button>
 
               {loggedInUser && (
                 <>
-                  <div className="bg-pink-400 text-white px-4 py-2 rounded-lg shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                  <div className="hover:bg-pink-600 bg-pink-400 text-white px-4 py-2 rounded-lg shadow-md transform hover:-translate-x-1 transition-all duration-300">
                     <span className="font-semibold">Welcome, {loggedInUser}!</span>
                   </div>
                   <button
                     type="button"
                     onClick={handleLogout}
-                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl"
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 transition-all duration-300 shadow-md hover:shadow-xl"
                   >
                     Logout
                   </button>
@@ -99,11 +108,11 @@ const Navbar = ({ onNavigate }) => {
           </div>
         </div>
       </nav>
-
       
       {toastVisible && <Toast message="logged out successfully!" onClose={() => setToastVisible(false)} />}
       
       {register && <Register />} 
+      {organiser && <OrganiserValidation/>}
     </div>
   );
 };

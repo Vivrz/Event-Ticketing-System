@@ -145,14 +145,15 @@ app.post("/Organiser-Signup" ,signupValidation, async(req , res) => {
 
 app.post("/Signup" ,signupValidation, async(req , res) => {
     try{
-        const {name ,   password , email    } = req.body;
+        const {name ,   password , email} = req.body;
+        const role = 'user';
         const user = await farmer.findOne({email});
         if(user){
             return res.status(409)
             .json({message : "User is already exist , you can login" , success : false})
         } 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const userModel = new farmer({ name, email, password: hashedPassword });
+        const userModel = new farmer({ name, email, password: hashedPassword , role });
         await userModel.save();
         res.status(201).
         json({message : "Signup successfully", success : true})

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import styles from "../styles/Register.module.css";
 
-const Register = () => {
+const OrganiserValidate = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,7 +50,7 @@ const Register = () => {
           <div className={styles.back_home}>
             <button onClick={() => window.location.reload()}>Back Home</button>
           </div>
-          <span>Fill in the form to get notified of events</span>
+          <span>Fill in the form to become the Organiser of the Event !</span>
           
           <form onSubmit={sendEmail} className="space-y-6 mt-6">
             <div>
@@ -122,10 +122,13 @@ const Register = () => {
           <div className={styles.image_title}>
             <span>Party like there is no tomorrow</span>
           </div>
+          <div className = {styles.image_title1}>
+            <span>Be the Organiser of an Event !! </span>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default OrganiserValidate;
