@@ -123,7 +123,7 @@ const OrganiserValidate = () => {
             <span>Party like there is no tomorrow</span>
           </div>
           <div className = {styles.image_title1}>
-            <span>Be the Organiser of an Event !! </span>
+            <span className = "text-lg font-bold color-white flex auto">Be the Organiser of an Event !! </span>
           </div>
         </div>
       </div>
