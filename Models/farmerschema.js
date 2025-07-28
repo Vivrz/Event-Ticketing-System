@@ -17,7 +17,7 @@ const farmerschema = new mongoose.Schema({
     role: {
         type : String,
         enum : ['user' , 'organiser'],
-        default : user
+        default : 'user'
     }
 })
 
