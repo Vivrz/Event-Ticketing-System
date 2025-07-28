@@ -47,7 +47,7 @@ function Login() {
         setToastMessage(message); // Set success toast message
         setToastVisible(true); // Show toast
         localStorage.setItem("token", jwtoken);
-        localStorage.setItem("loggedInUser", name);
+        localStorage.setItem("loggedInUser", JSON.stringify(result.user));
         setTimeout(() => navigate("/HomePage"), 1000); // Navigate after toast
       } else {
         if (message.toLowerCase().includes("incorrect password")) {

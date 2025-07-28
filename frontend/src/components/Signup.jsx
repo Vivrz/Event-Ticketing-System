@@ -31,7 +31,7 @@ function Signup() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signupInfo),
+        body: JSON.stringify({ ...signupInfo, role: "user" }),
       });
       const result = await response.json();
       const { success, message } = result;

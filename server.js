@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const cors = require("cors");
 const Organiser = require('./Models/OrgansierSchema.js');
 
-const {signupValidation , LoginValidation} = require('./Middleware/AuthValidation.js');
+const { signupValidation, LoginValidation } = require('./Middleware/AuthValidation.js');
 const connectionWithDB = require('./Models/DB.js');
 connectionWithDB().catch(err => {
   console.error("Database connection error:", err);
@@ -13,10 +13,10 @@ connectionWithDB().catch(err => {
 const app = express();
 require('dotenv').config();
 app.use(cors({
-    origin: ['https://event-ticket-system-tan.vercel.app','http://localhost:5173/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true 
+  origin: ['https://event-ticket-system-tan.vercel.app', 'http://localhost:5173/'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 app.use(express.json());
@@ -72,49 +72,49 @@ app.post("/book-ticket", async (req, res) => {
 const jwt = require('jsonwebtoken');
 const farmer = require("./Models/farmerschema.js");
 
-app.get("/", (req, res) => { 
-    res.send("hello from backend");
+app.get("/", (req, res) => {
+  res.send("hello from backend");
 })
 
-app.post("/Organiser-Login" ,LoginValidation, async(req , res) => {
-  try{
-      const { password , email  } = req.body;
-      const user = await Organiser.findOne({email});
-      const errormsg  = "Auth failed or password is wrong !";
-      if(!user){
-          return res.status(403)
-          .json({message : errormsg , success : false})
-      }
-      const ispassword = await bcrypt.compare(password , user.password);
-      if(!ispassword){
-          return res.status(403)
-          .json({message : errormsg , success : false})
-      }
+app.post("/Organiser-Login", LoginValidation, async (req, res) => {
+  try {
+    const { password, email } = req.body;
+    const user = await Organiser.findOne({ email });
+    const errormsg = "Auth failed or password is wrong !";
+    if (!user) {
+      return res.status(403)
+        .json({ message: errormsg, success: false })
+    }
+    const ispassword = await bcrypt.compare(password, user.password);
+    if (!ispassword) {
+      return res.status(403)
+        .json({ message: errormsg, success: false })
+    }
 
-      if (!process.env.JWT_SECRET) {
-        return res.status(500).json({ message: "JWT Secret is not defined", success: false });
-      }
+    if (!process.env.JWT_SECRET) {
+      return res.status(500).json({ message: "JWT Secret is not defined", success: false });
+    }
 
-      const jwtoken = jwt.sign(
-          {email : user.email  , _id : user._id},
-          process.env.JWT_SECRET,
-          { expiresIn : '24h'}
-      )
-      
-       res.status(200).
-      json({message : "Login successfully", success : true , jwtoken  , email , name : user.name})
+    const jwtoken = jwt.sign(
+      { email: user.email, _id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    )
+
+    res.status(200).
+      json({ message: "Login successfully", success: true, jwtoken, email, name: user.name })
   }
-  catch(error){
-      console.log(error);
-      res.status(500).
-      json({message : "Internal server error " ,  success : false})
+  catch (error) {
+    console.log(error);
+    res.status(500).
+      json({ message: "Internal server error ", success: false })
   }
 })
 
 app.delete("/delete-event/:id", async (req, res) => {
   try {
     const eventId = req.params.id;
-    await Event.findByIdAndDelete(eventId); 
+    await Event.findByIdAndDelete(eventId);
     res.status(200).json({ message: "Event deleted successfully" });
   } catch (err) {
     console.error(err);
@@ -122,82 +122,91 @@ app.delete("/delete-event/:id", async (req, res) => {
   }
 });
 
-app.post("/Organiser-Signup" ,signupValidation, async(req , res) => {
-  try{
-      const {name ,   password , email    } = req.body;
-      const user = await Organiser.findOne({email});
-      if(user){
-          return res.status(409)
-          .json({message : "User is already exist , you can login" , success : false})
-      } 
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const userModel = new Organiser({ name, email, password: hashedPassword });
-      await userModel.save();
-      res.status(201).
-      json({message : "Signup successfully", success : true})
+app.post("/Organiser-Signup", signupValidation, async (req, res) => {
+  try {
+    const { name, password, email } = req.body;
+    const user = await Organiser.findOne({ email });
+    if (user) {
+      return res.status(409)
+        .json({ message: "User is already exist , you can login", success: false })
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userModel = new Organiser({ name, email, password: hashedPassword });
+    await userModel.save();
+    res.status(201).
+      json({ message: "Signup successfully", success: true })
   }
-  catch(error){
-      console.log(error);
-      res.status(500).
-      json({message : "Internal server error " ,  success : false })
+  catch (error) {
+    console.log(error);
+    res.status(500).
+      json({ message: "Internal server error ", success: false })
   }
 })
 
-app.post("/Signup" ,signupValidation, async(req , res) => {
-    try{
-        const {name ,   password , email} = req.body;
-        const role = 'user';
-        const user = await farmer.findOne({email});
-        if(user){
-            return res.status(409)
-            .json({message : "User is already exist , you can login" , success : false})
-        } 
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const userModel = new farmer({ name, email, password: hashedPassword , role });
-        await userModel.save();
-        res.status(201).
-        json({message : "Signup successfully", success : true})
+app.post("/Signup", signupValidation, async (req, res) => {
+  try {
+    const { name, password, email } = req.body;
+    const role = 'user';
+    const user = await farmer.findOne({ email });
+    if (user) {
+      return res.status(409)
+        .json({ message: "User is already exist , you can login", success: false })
     }
-    catch(error){
-        console.log(error);
-        res.status(500).
-        json({message : "Internal server error " ,  success : false })
-    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userModel = new farmer({ name, email, password: hashedPassword, role });
+    await userModel.save();
+    res.status(201).
+      json({ message: "Signup successfully", success: true })
+  }
+  catch (error) {
+    console.log(error);
+    res.status(500).
+      json({ message: "Internal server error ", success: false })
+  }
 })
 
-app.post("/Login" ,LoginValidation, async(req , res) => {
-    try{
-        const { password , email  } = req.body;
-        const user = await farmer.findOne({email});
-        const errormsg  = "Auth failed or password is wrong !";
-        if(!user){
-            return res.status(403)
-            .json({message : errormsg , success : false})
-        }
-        const ispassword = await bcrypt.compare(password , user.password);
-        if(!ispassword){
-            return res.status(403)
-            .json({message : errormsg , success : false})
-        }
-
-        if (!process.env.JWT_SECRET) {
-          return res.status(500).json({ message: "JWT Secret is not defined", success: false });
-        }
-
-        const jwtoken = jwt.sign(
-            {email : user.email  , _id : user._id},
-            process.env.JWT_SECRET,
-            { expiresIn : '24h'}
-        )
-        
-         res.status(200).
-        json({message : "Login successfully", success : true , jwtoken  , email , name : user.name})
+app.post("/Login", LoginValidation, async (req, res) => {
+  try {
+    const { password, email } = req.body;
+    const user = await farmer.findOne({ email });
+    const errormsg = "Auth failed or password is wrong !";
+    if (!user) {
+      return res.status(403)
+        .json({ message: errormsg, success: false })
     }
-    catch(error){
-        console.log(error);
-        res.status(500).
-        json({message : "Internal server error " ,  success : false})
+    const ispassword = await bcrypt.compare(password, user.password);
+    if (!ispassword) {
+      return res.status(403)
+        .json({ message: errormsg, success: false })
     }
+
+    if (!process.env.JWT_SECRET) {
+      return res.status(500).json({ message: "JWT Secret is not defined", success: false });
+    }
+
+    const jwtoken = jwt.sign(
+      { email: user.email, _id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    )
+
+    res.status(200).json({
+      message: "Login successfully",
+      success: true,
+      jwtoken,
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
+    });
+
+  }
+  catch (error) {
+    console.log(error);
+    res.status(500).
+      json({ message: "Internal server error ", success: false })
+  }
 })
 
 
