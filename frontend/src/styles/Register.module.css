@@ -10,10 +10,11 @@
 
 .register_item{
     display: flex;
-    background-color: white;
+    background-color: #9F123B;
     height: 87%;
     width: 60%;
     margin: 5% 20%;
+    color : white
 }
 
 .register_input{
@@ -28,6 +29,7 @@
     font-weight: 900;
     margin: 5px 0px;
     font-size: 18px;
+    color : white;
 }
 
 .register_input input{
@@ -37,6 +39,7 @@
 .register_input span{
     font-weight: 700;
     margin: 20px 0px;
+    font-size: larger;
 }
 .register_input button{
     background-color: #f9649d;

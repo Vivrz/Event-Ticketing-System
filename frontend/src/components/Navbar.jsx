@@ -91,28 +91,35 @@ const Navbar = ({ onNavigate }) => {
 
 
             <div className="flex items-center space-x-4">
-              <button
-                type="button"
-                onClick={handleOpenRegister}
-                className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 duration-300 shadow-md hover:shadow-xl"
-              >
-                Get Notified
-              </button>
+              {loggedInUser.role !== 'organiser' && (
+                <>
+                  <button
+                    type="button"
+                    onClick={handleOpenRegister}
+                    className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 duration-300 shadow-md hover:shadow-xl"
+                  >
+                    Get Notified
+                  </button></>
+              )}
 
               {loggedInUser && loggedInUser.name && (
                 <>
                   <div className="hover:bg-pink-600 bg-pink-400 text-white px-4 py-2 rounded-lg shadow-md transform hover:-translate-x-1 transition-all duration-300">
                     <span className="font-semibold">Welcome, {loggedInUser.name}!</span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 transition-all duration-300 shadow-md hover:shadow-xl"
-                  >
-                    Logout
-                  </button>
+
+                  <div className="hover:bg-pink-600 bg-pink-400 text-white px-4 py-2 rounded-lg shadow-md transform hover:-translate-x-1 transition-all duration-300">
+                    <span className="font-semibold">Status : {loggedInUser.role}</span>
+                  </div>
                 </>
               )}
+               <button
+                      type="button"
+                      onClick={handleLogout}
+                      className="ml-auto bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transform hover:-translate-x-1 transition-all duration-300 shadow-md hover:shadow-xl"
+                    >
+                      Logout
+                    </button>
             </div>
           </div>
         </div>

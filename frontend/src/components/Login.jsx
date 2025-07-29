@@ -48,6 +48,9 @@ function Login() {
         setToastVisible(true); // Show toast
         localStorage.setItem("token", jwtoken);
         localStorage.setItem("loggedInUser", JSON.stringify(result.user));
+        if(result.user.role == 'organiser'){
+          alert(`Welcome Organiser :${result.user.name}`);
+        }
         setTimeout(() => navigate("/HomePage"), 1000); // Navigate after toast
       } else {
         if (message.toLowerCase().includes("incorrect password")) {
