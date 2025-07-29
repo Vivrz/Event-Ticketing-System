@@ -68,7 +68,7 @@ const Navbar = ({ onNavigate }) => {
             <div className="hidden md:flex items-center space-x-8">
               <button
                 type="button"
-                onClick={() => navigate('/')}
+                onClick={() => window.location.reload()}
                 className="text-white hover:text-pink-200 font-medium transition-all duration-300 hover:scale-105"
               >
                 Home
