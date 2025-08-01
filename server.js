@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const cors = require("cors");
 const Organiser = require('./Models/OrgansierSchema.js');
+const varify = require("./varifyEmail.js");
 
 const { signupValidation, LoginValidation } = require('./Middleware/AuthValidation.js');
 const connectionWithDB = require('./Models/DB.js');
@@ -151,6 +152,10 @@ app.post("/Signup", signupValidation, async (req, res) => {
     if (user) {
       return res.status(409)
         .json({ message: "User is already exist , you can login", success: false })
+    }
+    const valid = await varify(email);
+    if(!valid){
+      return res.status(400).json({message : "Invalid or undeliverable email address " , success : false});
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const userModel = new farmer({ name, email, password: hashedPassword, role });
