@@ -74,7 +74,7 @@ const jwt = require('jsonwebtoken');
 const farmer = require("./Models/farmerschema.js");
 
 app.get("/", (req, res) => {
-  res.send("hello from backend");
+  res.send("   backend");
 })
 
 app.post("/Organiser-Login", LoginValidation, async (req, res) => {
@@ -130,6 +130,10 @@ app.post("/Organiser-Signup", signupValidation, async (req, res) => {
     if (user) {
       return res.status(409)
         .json({ message: "User is already exist , you can login", success: false })
+    }
+    const valid = await varify(email);
+    if(!valid){
+      return res.status(400).json({message : "Invalid Email" , success : false });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const userModel = new Organiser({ name, email, password: hashedPassword });

@@ -53,6 +53,7 @@ function OrganiserSignup() {
           navigate("/OrganiserLogin");
         }, 1000);
       } else {
+        alert("Invalid Email !!");
         toast.error(message);
       }
     } catch (err) {

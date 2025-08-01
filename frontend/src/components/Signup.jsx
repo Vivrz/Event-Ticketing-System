@@ -39,6 +39,9 @@ function Signup() {
         handleSuccess(message);
         navigate("/Login");
       }
+      else{
+        alert("Not a verified Email address !!");
+      }
     } catch (err) {
       handlerror("Signup failed. Try again!");
     }
