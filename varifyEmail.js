@@ -8,7 +8,7 @@ const varifyEmailaddress = async (email) => {
     try{
         const res = await axios.get(url);
         const resdata = res.data.data;
-        console.log("Hunter API result" , data);
+        console.log("Hunter API result" , resdata);
         if(resdata.result === "deliverable"){
             return true;
         }
