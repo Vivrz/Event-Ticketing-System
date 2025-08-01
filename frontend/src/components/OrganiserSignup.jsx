@@ -29,11 +29,6 @@ function OrganiserSignup() {
       return toast.error("Name, email, and password are required!");
     }
 
-    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!validateEmail(email)) {
-      return toast.error("Please enter a valid email address!");
-    }
-
     if (password.length < 6) {
       return toast.error("Password must be at least 6 characters long!");
     }
