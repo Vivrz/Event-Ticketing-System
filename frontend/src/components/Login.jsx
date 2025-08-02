@@ -87,8 +87,13 @@ function Login() {
         setToastVisible(true); // Show toast
         setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
       } else {
-        setToastMessage(data.message || "Something went wrong");
-        setToastVisible(true);
+        if (data.message === "exist") {
+          setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
+        }
+        else {
+          setToastMessage("Something went wrong");
+          setToastVisible(true);
+        }
       }
     } catch (error) {
       setToastMessage(error.message); // Set error toast message
