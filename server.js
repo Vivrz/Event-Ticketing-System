@@ -179,10 +179,11 @@ app.post("/googleLogin" , async (req , res) =>{
     const {name , email} = req.body;
     let existingUser = await farmer.findOne({email});
     if(!existingUser){
-      const newUser = new farmer({name , email , role});
+      const newUser = new farmer({name , email , role : "user"});
       await newUser.save();
+       return res.status(200).json({ success: true, user: newUser });
     }
-    res.status(200).json();
+    return res.status(200).json({success : true , user : newUser});
   }
   catch(err){
     res.status(500).json({success : false , message : "something went wrong !!"});

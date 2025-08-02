@@ -82,7 +82,7 @@ function Login() {
       const data = await res.json();
 
       if (data.success) {
-        localStorage.setItem("loggedInUser", data.displayName);
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         setToastMessage(`Welcome, ${user.displayName}!`); // Set success toast message
         setToastVisible(true); // Show toast
         setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
