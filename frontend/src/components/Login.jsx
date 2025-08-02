@@ -88,6 +88,9 @@ function Login() {
         setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
       } else {
         if (data.message === "exist") {
+          localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+          setToastMessage(`Welcome, ${user.displayName}!`); // Set success toast message
+          setToastVisible(true); // Show toast
           setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
         }
         else {
