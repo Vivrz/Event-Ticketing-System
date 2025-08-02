@@ -183,7 +183,7 @@ app.post("/googleLogin" , async (req , res) =>{
       await newUser.save();
        return res.status(200).json({ success: true, user: newUser });
     }
-    return res.status(200).json({success : false , message : "exist" , user : newUsers});
+    return res.status(200).json({success : false , message : "exist" , user : newUser});
   }
   catch(err){
     res.status(500).json({success : false , message : "something went wrong !!"});
