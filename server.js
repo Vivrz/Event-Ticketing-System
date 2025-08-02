@@ -1,3 +1,4 @@
+const farmer = require("./Models/farmerschema.js");
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
@@ -71,7 +72,6 @@ app.post("/book-ticket", async (req, res) => {
 });
 
 const jwt = require('jsonwebtoken');
-const farmer = require("./Models/farmerschema.js");
 
 app.get("/", (req, res) => {
   res.send("   backend");
@@ -171,6 +171,21 @@ app.post("/Signup", signupValidation, async (req, res) => {
     console.log(error);
     res.status(500).
       json({ message: "Internal server error ", success: false })
+  }
+})
+
+app.post("/googleLogin" , async (req , res) =>{
+  try{
+    const {name , email} = req.body;
+    let existingUser = await farmer.findOne({email});
+    if(!existingUser){
+      const newUser = new farmer({name , email , role});
+      await newUser.save();
+    }
+    res.status(200).json();
+  }
+  catch(err){
+    res.status(500).json({success : false , message : "something went wrong !!"});
   }
 })
 

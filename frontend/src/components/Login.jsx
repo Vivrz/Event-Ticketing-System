@@ -13,7 +13,7 @@ function Login() {
 
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  
+
   const navigate = useNavigate();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -42,13 +42,13 @@ function Login() {
       });
       const result = await response.json();
       const { success, message, jwtoken, name } = result;
-      
+
       if (success) {
         setToastMessage(message); // Set success toast message
         setToastVisible(true); // Show toast
         localStorage.setItem("token", jwtoken);
         localStorage.setItem("loggedInUser", JSON.stringify(result.user));
-        if(result.user.role == 'organiser'){
+        if (result.user.role == 'organiser') {
           alert(`Welcome Organiser :${result.user.name}`);
         }
         setTimeout(() => navigate("/HomePage"), 1000); // Navigate after toast
@@ -65,16 +65,31 @@ function Login() {
       setToastVisible(true); // Show toast
     }
   };
-  
+
 
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      localStorage.setItem("loggedInUser", user.displayName);
-      setToastMessage(`Welcome, ${user.displayName}!`); // Set success toast message
-      setToastVisible(true); // Show toast
-      setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
+      const res = await fetch(`${base_url}/googleLogin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: user.displayName, email: user.email }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("loggedInUser", data.displayName);
+        setToastMessage(`Welcome, ${user.displayName}!`); // Set success toast message
+        setToastVisible(true); // Show toast
+        setTimeout(() => navigate("/HomePage"), 2000); // Navigate after toast
+      } else {
+        setToastMessage(data.message || "Something went wrong");
+        setToastVisible(true);
+      }
     } catch (error) {
       setToastMessage(error.message); // Set error toast message
       setToastVisible(true); // Show toast
