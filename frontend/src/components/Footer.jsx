@@ -20,6 +20,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800">
+
+      <div align="center">
+        <a href="https://buymeacoffee.com/vivrz" >
+          <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" />
+        </a>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
