@@ -7,6 +7,9 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
+  const onhandle = () =>{
+    window.location.href = "https://buymeacoffee.com/vivrz"
+  }
   const sections = ["For designers", "Company", "Directories"];
   const links = [
     "Go Pro!",
@@ -22,7 +25,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800">
 
       <div align="center">
-        <a href="https://buymeacoffee.com/vivrz" >
+        <a onClick = {onhandle}>
           <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" />
         </a>
       </div>

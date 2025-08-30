@@ -1,4 +1,3 @@
-const { required } = require('joi');
 const mongoose = require('mongoose');
 
 const farmerschema = new mongoose.Schema({
@@ -13,6 +12,7 @@ const farmerschema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        index : true
     },
     role: {
         type : String,

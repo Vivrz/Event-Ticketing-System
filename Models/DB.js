@@ -5,6 +5,7 @@ function connectionWithDB() {
   return mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    autoIndex : true
   });
 }
 

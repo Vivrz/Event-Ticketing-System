@@ -90,7 +90,7 @@ const Navbar = ({ onNavigate }) => {
             </div>
 
 
-            <div className="flex items-center space-x-4">
+            <div className="md:flex sm:hidden items-center space-x-4">
               {loggedInUser.role !== 'organiser' && (
                 <>
                   <button
