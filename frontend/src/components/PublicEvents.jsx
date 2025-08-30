@@ -40,16 +40,16 @@ const PublicEvents = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 p-6 flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-white text-center mb-6">🎭 Available Events</h1>
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-red-800 to-blue-800 p-6 flex flex-col items-center ">
+      <h1 className="text-4xl font-bold text-white text-center mb-6 mt-12">🎭 Available Events</h1>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-10  max-w-6xl mt-12">
         {events.length > 0 ? (
           events.map((event) => (
             <div
               key={event._id}
-              className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg cursor-pointer hover:scale-105 transition duration-300"
+              className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg cursor-pointer hover:scale-105 hover:-translate-y-4 transition duration-300"
               onClick={() => setSelectedEvent(event)}
             >
               <h3 className="text-xl font-bold text-white mb-2">{event.name}</h3>

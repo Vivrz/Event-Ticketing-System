@@ -90,7 +90,7 @@ function OrganiserLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 via-pink-800 to-rose-800 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-red-800 to-blue-800 px-4">
       <div className="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-xl shadow-lg max-w-md w-full">
         <h1 className="text-3xl font-bold text-white text-center mb-6">Organiser Login</h1>
 
